@@ -1,6 +1,6 @@
 {
-  "name": "angular-seed",
-  "version": "0.0.0",
+  "name": "client-app",
+  "version": "1.0.0",
   "description": "Modular starter project for Angular 2 (and beyond) with statically typed build and AoT compilation",
   "repository": {
     "url": "https://github.com/ronikurnia1/ClientApp"
@@ -133,12 +133,12 @@
     "@angular/http": "~2.2.3",
     "@angular/platform-browser": "~2.2.3",
     "@angular/platform-browser-dynamic": "~2.2.3",
-    "@angular/router": "~3.2.0",
+    "@angular/router": "~3.2.3",
     "intl": "^1.2.5",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.0-beta.12",
-    "systemjs": "0.19.40",
-    "zone.js": "0.6.25"
+    "rxjs": "5.0.0-rc.4",
+    "systemjs": "0.19.41",
+    "zone.js": "0.7.2"
   }
 }
