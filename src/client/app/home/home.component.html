@@ -1,8 +1,13 @@
 <p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
 
 <form (submit)="addName()">
-  <input [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
-  <button type="submit">Add</button>
+  <div class="ms-TextField">
+    <label class="ms-Label">Name</label>
+    <input class="ms-TextField-field" type="text" [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
+  </div>
+  <button class="ms-Button ms-Button--primary" type="submit">
+  <span class="ms-Button-label">Add</span>
+</button>
 </form>
 
 <ul>
