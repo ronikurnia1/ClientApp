@@ -5,3 +5,4 @@ export * from './name-list/index';
 export * from './navbar/index';
 export * from './headerbar/index';
 export * from './config/env.config';
+export * from './module-list/index';

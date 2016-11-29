@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AboutModule } from './about/about.module';
 import { HomeModule } from './home/home.module';
+import { AdminModule } from './admin/admin.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
