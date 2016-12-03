@@ -1,4 +1,8 @@
-<nav>
-  <a *ngFor="let module of modules"
-  [routerLink]="[module.link]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{module.name}}</a>
-</nav>
+<div class="SidebarSection ms-Nav-group" [class.is-expanded]="isExpanded" *ngFor="let section of moduleGroups">
+  <button class="ms-Nav-groupButton" (click)="toggleExpand($event)">
+    <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronDown"></i>
+    <span>{{section.displayName}}</span>      
+</button>
+  <navbar-detail class="LinkContainer ms-Nav-groupContent ms-u-slideDownIn20" [modules]="section.modules">
+  </navbar-detail>
+</div>

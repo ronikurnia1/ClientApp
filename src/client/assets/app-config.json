@@ -1,0 +1,101 @@
+{
+    "moduleGroups": [
+        {
+            "displayName": "Administrator",
+            "modules": [
+                {
+                    "name": "Home",
+                    "path": "",
+                    "order": 1
+                },
+                {
+                    "name": "Admin",
+                    "path": "admin",
+                    "order": 2
+                },
+                {
+                    "name": "About",
+                    "path": "about",
+                    "order": 3
+                },
+                {
+                    "name": "Contact",
+                    "path": "contact",
+                    "order": 4
+                }
+            ]
+        },
+        {
+            "displayName": "Transaction",
+            "modules": [
+                {
+                    "name": "Home",
+                    "path": "",
+                    "order": 1
+                },
+                {
+                    "name": "Admin",
+                    "path": "admin",
+                    "order": 2
+                },
+                {
+                    "name": "About",
+                    "path": "about",
+                    "order": 3
+                },
+                {
+                    "name": "Contact",
+                    "path": "contact",
+                    "order": 4
+                }
+            ]
+        },
+        {
+            "displayName": "Master Data",
+            "modules": [
+                {
+                    "name": "Home",
+                    "path": "",
+                    "order": 1
+                },
+                {
+                    "name": "Admin",
+                    "path": "admin",
+                    "order": 2
+                },
+                {
+                    "name": "About",
+                    "path": "about",
+                    "order": 3
+                },
+                {
+                    "name": "Contact",
+                    "path": "contact",
+                    "order": 4
+                }
+            ]
+        }
+    ],
+    "modules": [
+        {
+            "name": "Home",
+            "path": "",
+            "order": 1
+        },
+        {
+            "name": "Admin",
+            "path": "admin",
+            "order": 2
+        },
+        {
+            "name": "About",
+            "path": "about",
+            "order": 3
+        },
+        {
+            "name": "Contact",
+            "path": "contact",
+            "order": 4
+        }
+    ]
+}

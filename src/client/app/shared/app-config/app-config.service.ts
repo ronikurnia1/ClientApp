@@ -4,33 +4,33 @@ import { Observable } from 'rxjs/Observable';
 // import 'rxjs/add/operator/do';  // for debugging
 
 /**
- * This class provides the ModuleList service with methods to read modules based on profile
+ * This class provides the application config service with methods to read config based on profile
  */
 @Injectable()
-export class ModuleListService {
+export class AppConfigService {
 
   /**
    * Creates a new ModuleListService with the injected Http.
    * @param {Http} http - The injected Http.
    * @constructor
    */
-  constructor(private http: Http) {}
+
+  constructor(private http: Http) { }
 
   /**
    * Returns an Observable for the HTTP GET request for the JSON resource.
    * @return {string[]} The Observable for the HTTP request.
    */
-  get(): Observable<string[]> {
-    return this.http.get('/assets/app-module.json')
-                    .map((res: Response) => res.json())
-    //              .do(data => console.log('server data:', data))  // debug
-                    .catch(this.handleError);
+  getConfig(): Observable<string> {
+    return this.http.get('/assets/app-config.json')
+      .map((res: Response) => res.json())
+      .catch(this.handleError);
   }
 
   /**
     * Handle HTTP error
     */
-  private handleError (error: any) {
+  private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :

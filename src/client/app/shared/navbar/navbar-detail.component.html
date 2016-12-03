@@ -1,0 +1,2 @@
+<a class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover" *ngFor="let module of modules"
+    [routerLink]="[module.path]" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}">{{module.name}}</a>

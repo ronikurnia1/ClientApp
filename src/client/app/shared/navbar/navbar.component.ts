@@ -1,32 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-import { ModuleListService } from '../module-list/index';
+import { AppConfigService } from '../app-config/index';
+import { NavbarDetailComponent } from './navbar-detail.component';
 /**
  * This class represents the navigation bar component.
  */
 @Component({
   moduleId: module.id,
-  selector: 'side-navbar',
+  selector: 'aside',
   templateUrl: 'navbar.component.html',
-  styleUrls: ['navbar.component.css'],
+  //styleUrls: ['navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
 
-  errorMessage: string;
-  modules: any[] = [];
+  moduleGroups: any[] = [];
+  isExpanded: boolean = false;
 
-  constructor(public moduleListService: ModuleListService) { }
+  constructor(public appConfigService: AppConfigService) { }
 
   ngOnInit() {
-    this.getModules();
+    this.getAppModuleGroups();
   }
 
-  getModules() {
-    this.moduleListService.get()
-      .subscribe(
-      modules => this.modules = modules,
-      error => this.errorMessage = <any>error
-      );
+  getAppModuleGroups() {
+    // get app modules from localStorage
+    let appConfig: any = JSON.parse(localStorage.getItem("AppConfig")) || {};
+    this.moduleGroups = appConfig.moduleGroups;
   }
-
+  
+  toggleExpand(event: any){
+    this.isExpanded = !this.isExpanded;
+  }
 
 }
