@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/index';
-import { NavbarComponent, NavbarDetailComponent } from './navbar/index';
+import { NavbarComponent, NavbarSectionComponent, NavbarItemComponent } from './navbar/index';
 import { NameListService } from './name-list/index';
 import { AppConfigService } from './app-config/index';
 import { AuthCheckerService } from './auth-checker/index';
@@ -16,8 +16,8 @@ import { AuthCheckerService } from './auth-checker/index';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
-  declarations: [HeaderComponent, NavbarComponent, NavbarDetailComponent],
-  exports: [HeaderComponent, NavbarComponent,
+  declarations: [HeaderComponent, NavbarComponent, NavbarSectionComponent, NavbarItemComponent],
+  exports: [HeaderComponent, NavbarComponent, NavbarSectionComponent, NavbarItemComponent,
     CommonModule, FormsModule, RouterModule]
 })
 export class SharedModule {

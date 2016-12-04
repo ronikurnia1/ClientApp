@@ -9,25 +9,30 @@ export class AuthCheckerService implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         // get app modules from localStorage
         let appConfig: any = JSON.parse(localStorage.getItem("AppConfig")) || {};
-        let modules: any[] = appConfig.modules;
+        let moduleGroups: Array<any> = appConfig.moduleGroups;
+        let modules: any[] = [];
 
-        //console.log("route:", route);
+        moduleGroups.forEach(itm => {
+            modules = modules.concat(itm.modules);
+        });
 
-        if (modules.find(m => this.checkModule(m, route.url[0].path))) {
+        //console.log("Route state:", state);
+        //console.log("Activate route:", route);
+
+        //return true;
+
+        if (modules.find(m => this.checkModule(m, state.url))) {
             // logged in so return true
             return true;
         }
 
-        //this.router
-
-
-        // not logged in so redirect to login page
+        //not logged in so redirect to login page
         this.router.navigate(['']);
         return false;
     }
 
     checkModule(module: any, path: string) {
-        return module.path == path;
+        return module.longPath == path;
     }
 
 

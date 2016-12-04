@@ -1,15 +1,3 @@
-<p>Howdy! Here's a list of awesome computer scientists. Do you know any others? Add to the list yourself.</p>
-
-<form (submit)="addName()">
-  <div class="ms-TextField">
-    <label class="ms-Label">Name</label>
-    <input class="ms-TextField-field" type="text" [(ngModel)]="newName" name="newName" placeholder="Awesome Computer Scientist">
-  </div>
-  <button class="ms-Button ms-Button--primary" type="submit">
-  <span class="ms-Button-label">Add</span>
-</button>
-</form>
-
-<ul>
-  <li *ngFor="let name of names">{{name}}</li>
-</ul>
+<header></header>
+<aside id="SidebarContainer"></aside>
+<router-outlet></router-outlet>

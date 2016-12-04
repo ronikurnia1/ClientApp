@@ -5,7 +5,7 @@
   height: 47px;
   left: 0;
   right: 0;
-  line-height: 47px;
+  line-height: 45px;
   padding: 0 20px;
   overflow: hidden;
   white-space: no-wrap;
@@ -25,10 +25,12 @@
 
 #Header .Header-buttons {
   -webkit-font-smoothing: auto;
+  float: right;
 }
 
 #Header .Header-button {
   position: relative;
+  cursor: pointer;
   text-decoration: none;
   background: 0 0;
   color: #ffffff;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppConfigService } from '../app-config/index';
-import { NavbarDetailComponent } from './navbar-detail.component';
+import { NavbarModel } from './navbar.model';
+
 /**
  * This class represents the navigation bar component.
  */
@@ -11,11 +11,7 @@ import { NavbarDetailComponent } from './navbar-detail.component';
   //styleUrls: ['navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-
-  moduleGroups: any[] = [];
-  isExpanded: boolean = false;
-
-  constructor(public appConfigService: AppConfigService) { }
+  navbar: NavbarModel;
 
   ngOnInit() {
     this.getAppModuleGroups();
@@ -24,11 +20,15 @@ export class NavbarComponent implements OnInit {
   getAppModuleGroups() {
     // get app modules from localStorage
     let appConfig: any = JSON.parse(localStorage.getItem("AppConfig")) || {};
-    this.moduleGroups = appConfig.moduleGroups;
+    this.navbar = new NavbarModel(appConfig.moduleGroups);
   }
-  
-  toggleExpand(event: any){
-    this.isExpanded = !this.isExpanded;
+
+  get sections() {
+    return this.navbar.sections;
+  }
+
+  collapseAllSection(event: any) {
+    this.navbar.collapseAllSection();
   }
 
 }

@@ -5,22 +5,26 @@
             "modules": [
                 {
                     "name": "Home",
-                    "path": "",
+                    "path": "/home",
+                    "longPath": "/home",
                     "order": 1
                 },
                 {
                     "name": "Admin",
                     "path": "admin",
+                    "longPath": "/home/admin",
                     "order": 2
                 },
                 {
                     "name": "About",
                     "path": "about",
+                    "longPath": "/home/about",
                     "order": 3
                 },
                 {
                     "name": "Contact",
                     "path": "contact",
+                    "longPath": "/home/contact",
                     "order": 4
                 }
             ]
@@ -30,22 +34,26 @@
             "modules": [
                 {
                     "name": "Home",
-                    "path": "",
+                    "path": "/home",
+                    "longPath": "/home",
                     "order": 1
                 },
                 {
                     "name": "Admin",
                     "path": "admin",
+                    "longPath": "/home/admin",
                     "order": 2
                 },
                 {
                     "name": "About",
                     "path": "about",
+                    "longPath": "/home/about",
                     "order": 3
                 },
                 {
                     "name": "Contact",
                     "path": "contact",
+                    "longPath": "/home/contact",
                     "order": 4
                 }
             ]
@@ -55,47 +63,29 @@
             "modules": [
                 {
                     "name": "Home",
-                    "path": "",
+                    "path": "/home",
+                    "longPath": "/home",
                     "order": 1
                 },
                 {
                     "name": "Admin",
                     "path": "admin",
+                    "longPath": "/home/admin",
                     "order": 2
                 },
                 {
                     "name": "About",
                     "path": "about",
+                    "longPath": "/home/about",
                     "order": 3
                 },
                 {
                     "name": "Contact",
                     "path": "contact",
+                    "longPath": "/home/contact",
                     "order": 4
                 }
             ]
-        }
-    ],
-    "modules": [
-        {
-            "name": "Home",
-            "path": "",
-            "order": 1
-        },
-        {
-            "name": "Admin",
-            "path": "admin",
-            "order": 2
-        },
-        {
-            "name": "About",
-            "path": "about",
-            "order": 3
-        },
-        {
-            "name": "Contact",
-            "path": "contact",
-            "order": 4
         }
     ]
 }

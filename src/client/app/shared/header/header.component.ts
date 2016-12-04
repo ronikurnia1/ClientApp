@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
+
+declare const fabric: any;
 /**
  * This class represents the header component.
  */
@@ -9,5 +11,24 @@ import { Component } from '@angular/core';
   templateUrl: 'header.component.html',
   styleUrls: ['header.component.css']
 })
-export class HeaderComponent { }
+export class HeaderComponent implements AfterViewInit {
+
+  constructor(private element: ElementRef) {
+
+  }
+  ngAfterViewInit() {
+    // let CommandBarElements = this.element.nativeElement.querySelectorAll(".ms-CommandBar");
+    // for (var i = 0; i < CommandBarElements.length; i++) {
+    //   new fabric['CommandBar'](CommandBarElements[i]);
+    // }
+
+
+    let ButtonElement = document.querySelector(".ms-ContextualMenu-basic .Header-button");
+    let ContextualMenuElement = document.querySelector(".ms-ContextualMenu-basic .ms-ContextualMenu");
+    let contextualMenu = new fabric['ContextualMenu'](ContextualMenuElement, ButtonElement);
+
+  }
+
+}
+
 
