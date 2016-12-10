@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Config, AppConfigService } from './shared/index';
+import { Config } from './shared/index';
 import './operators';
 
 /**
@@ -11,25 +11,12 @@ import './operators';
   templateUrl: 'app.component.html',
 })
 export class AppComponent implements OnInit {
-
-  errorMessage: string;
-
-  constructor(private appConfigService: AppConfigService) {
+  constructor() {
     console.log('Environment config', Config);
   }
 
   ngOnInit() {
-    this.getAppConfig();
+    
   }
-
-  getAppConfig() {
-    this.appConfigService.getConfig()
-      .subscribe(
-      // TODO: put this when login
-      config => localStorage.setItem("AppConfig", JSON.stringify(config)),
-      error => this.errorMessage = <any>error
-      );
-  }
-
 
 }

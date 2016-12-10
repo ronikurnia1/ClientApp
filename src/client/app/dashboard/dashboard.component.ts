@@ -12,7 +12,7 @@ declare const fabric: any;
 })
 export class DashboardComponent implements AfterViewInit {
 
-  model = new DataForm(new Date(2016, 11, 4), "roni kurniawan");
+  model = new DataForm(new Date(2016, 11, 4), "Roni Kurniawan");
   submitted: boolean = false;
 
   picker: any;
@@ -22,7 +22,7 @@ export class DashboardComponent implements AfterViewInit {
   }
 
   displayConfig(event: any) {
-    let config = JSON.parse(localStorage.getItem("AppConfig")) || {};
+    let config = JSON.parse(localStorage.getItem("appConfig")) || {};
     let sections: any[] = config.moduleGroups;
     sections.forEach(itm => alert(itm.displayName));
   }

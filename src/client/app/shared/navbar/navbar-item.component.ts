@@ -11,12 +11,5 @@ import { NavbarItemModel } from './navbar.model';
 })
 export class NavbarItemComponent {
     @Input()
-    item: NavbarItemModel;
-
-    get displayName(): string {
-        return this.item.displayName;
-    }
-    get path(): string {
-        return this.item.path;
-    }
+    public item: NavbarItemModel;
 }

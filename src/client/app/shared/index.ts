@@ -5,5 +5,5 @@ export * from './name-list/index';
 export * from './navbar/index';
 export * from './header/index';
 export * from './config/env.config';
-export * from './app-config/index';
 export * from './auth-checker/index';
+export * from './authentication/index';

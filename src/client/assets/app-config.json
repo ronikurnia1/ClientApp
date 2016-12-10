@@ -1,89 +1,110 @@
 {
     "moduleGroups": [
         {
-            "displayName": "Administrator",
+            "displayName": "Administration",
+            "hidden": false,
             "modules": [
                 {
                     "name": "Home",
                     "path": "/home",
                     "longPath": "/home",
-                    "order": 1
+                    "order": 1,
+                    "hidden": false
                 },
                 {
                     "name": "Admin",
                     "path": "admin",
                     "longPath": "/home/admin",
-                    "order": 2
+                    "order": 2,
+                    "hidden": false
                 },
                 {
                     "name": "About",
                     "path": "about",
                     "longPath": "/home/about",
-                    "order": 3
-                },
-                {
-                    "name": "Contact",
-                    "path": "contact",
-                    "longPath": "/home/contact",
-                    "order": 4
+                    "order": 3,
+                    "hidden": false
                 }
             ]
         },
         {
-            "displayName": "Transaction",
+            "displayName": "Transactions",
+            "hidden": false,
             "modules": [
                 {
-                    "name": "Home",
-                    "path": "/home",
-                    "longPath": "/home",
-                    "order": 1
+                    "name": "Transaction A",
+                    "path": "transaction/a",
+                    "longPath": "/home/transaction/a",
+                    "order": 1,
+                    "hidden": false
                 },
                 {
-                    "name": "Admin",
-                    "path": "admin",
-                    "longPath": "/home/admin",
-                    "order": 2
+                    "name": "Transaction B",
+                    "path": "transaction/b",
+                    "longPath": "/home/transaction/b",
+                    "order": 2,
+                    "hidden": false
                 },
                 {
-                    "name": "About",
-                    "path": "about",
-                    "longPath": "/home/about",
-                    "order": 3
-                },
-                {
-                    "name": "Contact",
-                    "path": "contact",
-                    "longPath": "/home/contact",
-                    "order": 4
+                    "name": "Transaction C",
+                    "path": "transaction/c",
+                    "longPath": "/home/transaction/c",
+                    "order": 3,
+                    "hidden": false
                 }
             ]
         },
         {
             "displayName": "Master Data",
+            "hidden": false,
             "modules": [
                 {
-                    "name": "Home",
-                    "path": "/home",
-                    "longPath": "/home",
-                    "order": 1
+                    "name": "User",
+                    "path": "user",
+                    "longPath": "/home/user",
+                    "order": 1,
+                    "hidden": false
                 },
                 {
-                    "name": "Admin",
-                    "path": "admin",
-                    "longPath": "/home/admin",
-                    "order": 2
+                    "name": "User Role",
+                    "path": "user-role",
+                    "longPath": "/home/user-role",
+                    "order": 2,
+                    "hidden": false
                 },
                 {
-                    "name": "About",
-                    "path": "about",
-                    "longPath": "/home/about",
-                    "order": 3
+                    "name": "Setting",
+                    "path": "setting",
+                    "longPath": "/home/setting",
+                    "order": 3,
+                    "hidden": false
                 },
                 {
                     "name": "Contact",
                     "path": "contact",
                     "longPath": "/home/contact",
-                    "order": 4
+                    "order": 4,
+                    "hidden": false
+                }
+            ]
+        },
+        {
+            "displayName": "HiddenSection",
+            "hidden": true,
+            "modules":[
+                {
+                    "name": "Not Found",
+                    "path": "page-not-found",
+                    "longPath": "/home/page-not-found",
+                    "order": 1,
+                    "hidden": true
+                },
+                {
+                    "name": "Forbidden",
+                    "path": "forbidden",
+                    "longPath": "/home/forbidden",
+                    "order": 2,
+                    "hidden": true
                 }
             ]
         }

@@ -10,29 +10,17 @@ import { NavbarSectionModel, NavbarItemModel } from './navbar.model'
 })
 export class NavbarSectionComponent {
     @Input()
-    navbarSection: NavbarSectionModel;
+    public navbarSection: NavbarSectionModel;
     @Output()
-    sectionExpanded: EventEmitter<any> = new EventEmitter();
+    sectionExpanded: EventEmitter<string> = new EventEmitter();
 
-    get displayName(): string {
-        return this.navbarSection.displayName;
-    }
-    get items(): Array<NavbarItemModel> {
-        return this.navbarSection.items;
-    }
-
-    get isExpanded(): boolean{
-        return this.navbarSection.isExpanded;
-    }
-    set isExpanded(value: boolean){
-        this.navbarSection.isExpanded = value;
-    }
-
-    toggleExpand(event: any) {
-        if (!this.isExpanded) {
-            this.sectionExpanded.emit(event);
+    toggleExpand(section: string) {
+        if (!this.navbarSection.isExpanded) {
+            this.sectionExpanded.emit(section);
+        } else {
+            this.sectionExpanded.emit("");
         }
-        this.isExpanded = !this.isExpanded;
+        //this.navbarSection.isExpanded = !this.navbarSection.isExpanded;
     }
 
 }

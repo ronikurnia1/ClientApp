@@ -23,8 +23,8 @@ export class HeaderComponent implements AfterViewInit {
     // }
 
 
-    let ButtonElement = document.querySelector(".ms-ContextualMenu-basic .Header-button");
-    let ContextualMenuElement = document.querySelector(".ms-ContextualMenu-basic .ms-ContextualMenu");
+    let ContextualMenuElement = this.element.nativeElement.querySelector(".ms-ContextualMenu-basic .ms-ContextualMenu");
+    let ButtonElement = this.element.nativeElement.querySelector(".ms-ContextualMenu-basic .Header-button");
     let contextualMenu = new fabric['ContextualMenu'](ContextualMenuElement, ButtonElement);
 
   }

@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
 export class AdminComponent {
 
   displayConfig(event: any) {
-    let config = JSON.parse(localStorage.getItem("AppConfig")) || {};
+    let config = JSON.parse(localStorage.getItem("appConfig")) || {};
     let sections: any[] = config.moduleGroups;
     sections.forEach(itm => alert(itm.displayName));
   }

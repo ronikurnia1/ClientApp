@@ -1,5 +1,6 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../shared/authentication/index';
 
 declare const fabric: any;
 
@@ -12,14 +13,41 @@ declare const fabric: any;
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent implements AfterViewInit, OnInit {
+  model: any = {};
+  loading: boolean = false;
+  returnUrl: string = "";
 
-  constructor(private router: Router, private elementRef: ElementRef) {
 
-  }
+  private errorMessage: string;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authentication: AuthenticationService,
+    private elementRef: ElementRef) { }
 
   login(event: any) {
-    this.router.navigate(["home"]);
+    this.loading = true;
+    this.authentication.login(this.model.username, this.model.password)
+      .subscribe(
+      data => {
+        this.router.navigate([this.returnUrl]);
+      },
+      error => {
+        console.log("Error:", error);
+        //this.alertService.error(error);
+        this.loading = false;
+      });
+  }
+
+
+  ngOnInit() {
+    // reset login status
+    this.authentication.logout();
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.params['returnUrl'] || 'home';
   }
 
   ngAfterViewInit() {
@@ -35,5 +63,4 @@ export class LoginComponent implements AfterViewInit {
       });
     }
   }
-
 }

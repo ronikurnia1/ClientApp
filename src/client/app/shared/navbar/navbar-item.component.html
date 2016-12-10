@@ -1,2 +1,2 @@
-<a class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover"
-    [routerLink]="[path]" [routerLinkActive]="['is-selected']" [routerLinkActiveOptions]="{exact:true}">{{displayName}}</a>
+<a *ngIf="!item.hidden" class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover"
+    [routerLink]="[item.path]" [routerLinkActive]="['is-selected']" [routerLinkActiveOptions]="{exact:true}">{{item.displayName}}</a>

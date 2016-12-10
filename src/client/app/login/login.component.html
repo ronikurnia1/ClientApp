@@ -1,18 +1,21 @@
-<div class="centered">
-    <div class="ms-font-xxl ms-fontWeight-semibold ms-font--blue">Hospita<span class="Header-Title ms-font-xxl">Lite</span></div>
+<div class="centered ms-PersonaCard-persona">
+    <div class="ms-font-xxl ms-fontWeight-semibold ms-font--blue text-center">Hospita<span class="Header-Title ms-font-xxl">Lite</span></div>
 
-    <div class="ms-TextField">
-        <label class="ms-Label">User Name</label>
-        <input class="ms-TextField-field" type="text">
-    </div>
-
-    <div class="ms-TextField">
-        <label class="ms-Label">Password</label>
-        <input class="ms-TextField-field" type="password">
-    </div>
-
-
-    <button class="ms-Button" (click)="login($event)">
-        <span class="ms-Button-label">Login</span>
-    </button>
+    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+        <div class="ms-TextField" [class.has-error]="f.submitted && !username.valid">
+            <label class="ms-Label" for="username">User Name</label>
+            <input [(ngModel)]="model.username" #username="ngModel" required class="ms-TextField-field" type="text" name="username">
+            <div *ngIf="f.submitted && !username.valid" class="ms-TextField-description">Username is required</div>
+        </div>
+        <div class="ms-TextField" [class.has-error]="f.submitted && !password.valid">
+            <label class="ms-Label" for="password">Password</label>
+            <input [(ngModel)]="model.password" #password="ngModel" required class="ms-TextField-field" type="password" name="password">
+            <div *ngIf="f.submitted && !password.valid" class="ms-TextField-description">Password is required</div>
+        </div>
+        <div class="SubmitButton">
+            <button class="ms-Button ms-Button--primary" [disabled]="loading">
+            <span class="ms-Button-label">Login</span>
+            </button>
+        </div>
+    </form>
 </div>

@@ -8,32 +8,27 @@ export class AuthCheckerService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         // get app modules from localStorage
-        let appConfig: any = JSON.parse(localStorage.getItem("AppConfig")) || {};
+        let appConfig: any = JSON.parse(localStorage.getItem("appConfig")) || {};
         let moduleGroups: Array<any> = appConfig.moduleGroups;
-        let modules: any[] = [];
 
-        moduleGroups.forEach(itm => {
-            modules = modules.concat(itm.modules);
-        });
-
-        //console.log("Route state:", state);
-        //console.log("Activate route:", route);
-
-        //return true;
-
-        if (modules.find(m => this.checkModule(m, state.url))) {
-            // logged in so return true
-            return true;
+        if (!moduleGroups) {
+            // not logged in so redirect to login page with the return url
+            this.router.navigate(['login', { returnUrl: state.url }]);
+            return false;
         }
 
-        //not logged in so redirect to login page
-        this.router.navigate(['']);
+        let modules: any[] = [];
+        for (let i = 0; i < moduleGroups.length; i++) {
+            modules = moduleGroups[i].modules;
+            if (modules.some(itm => itm.longPath == state.url)) {
+                return true;
+            }
+        }
+
+        console.log("Forbidden");
+        // not authorized (403) so redirect to not authorized page
+        this.router.navigate(['home/forbidden']);
         return false;
     }
-
-    checkModule(module: any, path: string) {
-        return module.longPath == path;
-    }
-
 
 }
