@@ -5,7 +5,7 @@
   height: 47px;
   left: 0;
   right: 0;
-  line-height: 45px;
+  line-height: 42px;
   padding: 0 20px;
   overflow: hidden;
   white-space: no-wrap;
@@ -65,4 +65,8 @@ html[dir=rtl] #Header .HeaderTitle {
 
 html[dir=rtl] #Header .Header-buttons {
   float: left;
+}
+
+.pull-down {
+  vertical-align: bottom;
 }

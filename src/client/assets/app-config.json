@@ -51,6 +51,13 @@
                     "longPath": "/home/transaction/c",
                     "order": 3,
                     "hidden": false
+                },
+                {
+                    "name": "Dynamic Form",
+                    "path": "transaction/dynamic-form",
+                    "longPath": "/home/transaction/dynamic-form",
+                    "order": 4,
+                    "hidden": false
                 }
             ]
         },
@@ -91,7 +98,7 @@
         {
             "displayName": "HiddenSection",
             "hidden": true,
-            "modules":[
+            "modules": [
                 {
                     "name": "Not Found",
                     "path": "page-not-found",

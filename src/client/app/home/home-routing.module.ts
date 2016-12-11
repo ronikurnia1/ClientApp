@@ -15,6 +15,7 @@ import { AuthCheckerService } from '../shared/auth-checker/index';
           { path: 'transaction/a', loadChildren: './app/transactions/transaction-a/transaction-a.module#TransactionAModule', canActivate: [AuthCheckerService] },
           { path: 'transaction/b', loadChildren: './app/transactions/transaction-b/transaction-b.module#TransactionBModule', canActivate: [AuthCheckerService] },
           { path: 'transaction/c', loadChildren: './app/transactions/transaction-c/transaction-c.module#TransactionCModule', canActivate: [AuthCheckerService] },
+          { path: 'transaction/dynamic-form', loadChildren: './app/dynamic-form/sample-dynamic-form.module#SampleDynamicFormModule', canActivate: [AuthCheckerService] },
           { path: 'page-not-found', loadChildren: './app/not-found/not-found.module#NotFoundModule' },
           { path: 'forbidden', loadChildren: './app/forbidden/forbidden.module#ForbiddenModule' },
           { path: '**', redirectTo: 'page-not-found' }
