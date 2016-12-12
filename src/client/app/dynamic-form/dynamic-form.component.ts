@@ -34,6 +34,7 @@ export class DynamicFormComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     onSubmit() {
+        // submit the from
         this.payLoad = JSON.stringify(this.form.value);
     }
 
