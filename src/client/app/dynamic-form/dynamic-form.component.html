@@ -1,9 +1,7 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let field of fields" class="form-row">
-        <dynamic-field [field]="field" [form]="form"></dynamic-field>
-    </div>
+<form (ngSubmit)="form.valid && onSubmit()" [formGroup]="form" novalidate>
+    <dynamic-field *ngFor="let field of fields" [field]="field" [form]="form" [submitted]="submitted"></dynamic-field>
     <div class="form-row">
-        <button type="submit" class="ms-Button ms-Button--primary" [disabled]="!form.valid">
+        <button type="submit" (click)="submitButtonClick()" class="ms-Button ms-Button--primary">
             <span class="ms-Button-label">Save</span>
         </button>
     </div>

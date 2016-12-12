@@ -7,7 +7,7 @@ export class FieldControlService {
 
     constructor() { }
 
-    toControlGroup(fields: FieldBase<any>[]) {
+    generateFormGroup(fields: FieldBase<any>[]) {
         let group: IFieldBaseOption<any> = {};
         fields.forEach(field => {
             group[field.key] = field.required ? new FormControl(field.value || '', Validators.required)
@@ -16,3 +16,4 @@ export class FieldControlService {
         return new FormGroup(group);
     }
 }
+

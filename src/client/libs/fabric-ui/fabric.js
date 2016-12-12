@@ -761,13 +761,13 @@ var fabric;
             return _posOk;
         };
         ContextualHost.prototype._calcLeft = function (mWidth, teWidth, teLeft) {
-            var mHalfWidth = mWidth / 2;
-            var teHalf = teWidth / 2;
+            // let mHalfWidth = mWidth / 2;
+            // let teHalf = teWidth / 2;
             // center
-            //let mHLeft = (teLeft + teHalf) - mHalfWidth;
+            // let mHLeft = (teLeft + teHalf) - mHalfWidth;
             // right align
             var mHLeft = (teLeft + teWidth) - mWidth;
-            //mHLeft = (mHLeft < mHalfWidth) ? teLeft : mHLeft;
+            // mHLeft = (mHLeft < mHalfWidth) ? teLeft : mHLeft;
             return mHLeft;
         };
         ContextualHost.prototype._calcTop = function (mHeight, teHeight, teTop) {
@@ -1132,6 +1132,9 @@ var fabric;
         RadioButton.prototype.getValue = function () {
             return this._choiceField.getAttribute("aria-checked") === "true" ? true : false;
         };
+        RadioButton.prototype.getTextValue = function () {
+            return this._choiceInput.value;
+        };
         RadioButton.prototype.toggle = function () {
             if (this.getValue()) {
                 this.unCheck();
@@ -1217,7 +1220,8 @@ var fabric;
          * @param {HTMLElement} container - the target container for an instance of ChoiceFieldGroup
          * @constructor
          */
-        function ChoiceFieldGroup(container) {
+        function ChoiceFieldGroup(container, valueChanged) {
+            this.valueChanged = valueChanged;
             this._choiceFieldGroup = container;
             this._choiceFieldComponents = [];
             this._initalSetup();
@@ -1225,6 +1229,12 @@ var fabric;
         }
         ChoiceFieldGroup.prototype.removeListeners = function () {
             this._choiceFieldGroup.removeEventListener("msChoicefield", this._ChoiceFieldHandler.bind(this));
+            this._choiceFieldComponents.forEach(function (itm) { return itm.removeListeners(); });
+        };
+        ChoiceFieldGroup.prototype.setValue = function (newValue) {
+            this._choiceFieldComponents.filter(function (itm) { return itm.getTextValue() === newValue; }).forEach(function (itm) {
+                itm.check();
+            });
         };
         ChoiceFieldGroup.prototype._initalSetup = function () {
             var choiceFieldElements = this._choiceFieldGroup.querySelectorAll(".ms-RadioButton");
@@ -1233,7 +1243,8 @@ var fabric;
             }
         };
         ChoiceFieldGroup.prototype._addListeners = function () {
-            document.addEventListener("msChoicefield", this._ChoiceFieldHandler.bind(this), false);
+            this._choiceFieldGroup.addEventListener("msChoicefield", this._ChoiceFieldHandler.bind(this), false);
+            // document.addEventListener("msChoicefield", this._ChoiceFieldHandler.bind(this), false);
         };
         ChoiceFieldGroup.prototype._ChoiceFieldHandler = function (event) {
             var name = event.detail.name;
@@ -1243,6 +1254,7 @@ var fabric;
                     this._choiceFieldComponents[i].unCheck();
                 }
                 selectedChoice.check();
+                this.valueChanged(selectedChoice.getTextValue());
             }
         };
         return ChoiceFieldGroup;
@@ -1849,7 +1861,7 @@ var fabric;
         ContextualMenu.prototype._onDocumentClick = function (event) {
             var target = event.target;
             var classList = target.classList;
-            if (!this._hostTarget.contains(target) && !classList.contains("ms-ContextualMenu-link")) {
+            if (!this._hostTarget.contains(target) && classList && !classList.contains("ms-ContextualMenu-link")) {
                 this._isOpen = false;
             }
         };
@@ -1952,6 +1964,8 @@ var fabric;
             var $dateField = $datePicker.find(".ms-TextField-field").pickadate($.extend({
                 // Strings and translations.
                 weekdaysShort: ["S", "M", "T", "W", "T", "F", "S"],
+                // format
+                // format: "yyyy-mm-dd",
                 // Don't render the buttons
                 clear: "",
                 close: "",
@@ -3551,7 +3565,9 @@ var fabric;
             var _this = this;
             // Ensure that the text box gets focus when the label is clicked.
             this._textFieldLabel.addEventListener("click", function (event) {
-                _this._textField.focus();
+                if (_this._textField) {
+                    _this._textField.focus();
+                }
             });
             /** Placeholder - hide/unhide the placeholder  */
             if (this._type.indexOf(TextFieldConsts.Type.Placeholder) >= 0) {

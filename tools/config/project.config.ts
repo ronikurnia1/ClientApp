@@ -28,7 +28,8 @@ export class ProjectConfig extends SeedConfig {
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
       ...this.APP_ASSETS,
-      { src: `${this.APP_SRC}/libs/fabric-ui/fabric.min.js`, inject: true, vendor: false },
+      // { src: `${this.APP_SRC}/libs/fabric-ui/fabric.min.js`, inject: true, vendor: false },
+      { src: `${this.APP_SRC}/libs/fabric-ui/fabric.js`, inject: true, vendor: false },
       { src: `${this.APP_SRC}/libs/fabric-ui/PickaDate.js`, inject: true, vendor: false },
       { src: `${this.CSS_SRC}/fabric-ui/fabric.min.css`, inject: true, vendor: false },
       { src: `${this.CSS_SRC}/fabric-ui/fabric.components.min.css`, inject: true, vendor: false }
