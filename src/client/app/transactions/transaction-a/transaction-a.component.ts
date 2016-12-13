@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
+
+declare const fabric: any;
 
 /**
  * This class represents the TransactionAComponent.
@@ -9,11 +11,13 @@ import { Component } from '@angular/core';
   templateUrl: 'transaction-a.component.html',
   styleUrls: ['transaction-a.component.css']
 })
-export class TransactionAComponent {
-
-  displayConfig(event: any) {
-    let config = JSON.parse(localStorage.getItem("appConfig")) || {};
-    let sections: any[] = config.moduleGroups;
-    sections.forEach(itm => alert(itm.displayName));
+export class TransactionAComponent implements AfterViewInit {
+  constructor(private elementRef: ElementRef) { }
+  ngAfterViewInit() {
+    let SearchBoxElements = this.elementRef.nativeElement.querySelectorAll(".ms-SearchBox");
+    for (let i = 0; i < SearchBoxElements.length; i++) {
+      new fabric['SearchBox'](SearchBoxElements[i]);
+    }
   }
+
 }

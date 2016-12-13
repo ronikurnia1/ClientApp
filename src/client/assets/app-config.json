@@ -32,7 +32,7 @@
             "hidden": false,
             "modules": [
                 {
-                    "name": "Transaction A",
+                    "name": "Sample data list",
                     "path": "transaction/a",
                     "longPath": "/home/transaction/a",
                     "order": 1,
