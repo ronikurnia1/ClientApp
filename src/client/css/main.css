@@ -100,8 +100,8 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 }
 
 .ms-Nav-group.is-expanded .ms-Nav-groupChevron {
-  -ms-transform: rotate(-180deg);
-      transform: rotate(-180deg);
+  -ms-transform: rotate(90deg);
+      transform: rotate(90deg);
 }
 
 .ms-Nav-groupButton {
