@@ -46,7 +46,7 @@ html[dir=ltr] .ms-Nav-groupChevron.ms-Icon {
   left: 15px;
 }
 
-html[dir=ltr] #SidebarContainer {
+html[dir=ltr] .sidebarContainer {
   border-right: 1px solid #eeeeee;
   left: 0;
 }
@@ -64,7 +64,7 @@ html[dir=rtl] .ms-Nav-groupButton {
   text-align: right;
 }
 
-html[dir=rtl] #SidebarContainer {
+html[dir=rtl] .sidebarContainer {
   border-left: 1px solid #eeeeee;
   right: 0;
 }
@@ -74,11 +74,22 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   border-left: 0px;
 }
 
-#SidebarContainer {
+.sidebarHeader {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  width: 240px;
+  height: 10px;
+  background: #f5f5f5;
+  border-right: 1px solid #eaeaea;
+}
+.sidebarContainer {
   position: absolute;
   width: 240px;
-  top: 47px;
+  top: 57px;
+  left: 0;
   bottom: 0;
+  border-right: 1px solid #eaeaea;
   background: #f5f5f5;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -86,7 +97,11 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   -webkit-overflow-scrolling: touch;
 }
 
-#SidebarContainer h1 {
+.sidebarSection {
+  padding-left: 10px;
+}
+
+.sidebarContainer h1 {
   padding-left: 25px;
 }
 
@@ -129,7 +144,7 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 
 .ms-Nav-groupContent {
   display: none;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .ms-Nav-group.is-expanded .ms-Nav-groupContent {
@@ -148,12 +163,14 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 
 
 .LinkContainer {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  position: relative;
 }
 
 .LinkContainer a {
+  position: relative;
   display: block;
-  padding: 8px 40px;
+  padding: 8px 10px 8px 16px;
 }
 
 .LinkContainer a:hover {

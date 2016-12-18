@@ -23,7 +23,7 @@ export class DashboardComponent implements AfterViewInit {
 
   displayConfig(event: any) {
     let config = JSON.parse(localStorage.getItem("appConfig")) || {};
-    let sections: any[] = config.moduleGroups;
+    let sections: any[] = config.navigations;
     sections.forEach(itm => alert(itm.displayName));
   }
 

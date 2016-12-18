@@ -1,9 +1,0 @@
-<div class="SidebarSection ms-Nav-group" [class.is-expanded]="navbarSection.isExpanded">
-    <button class="ms-Nav-groupButton" (click)="toggleExpand(navbarSection.displayName)">
-        <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronRight"></i>
-        <span>{{navbarSection.displayName}}</span>      
-    </button>
-    <div class="LinkContainer ms-Nav-groupContent ms-u-slideDownIn20">
-        <navbar-item *ngFor="let item of navbarSection.items" [item]="item"></navbar-item>
-    </div>
-</div>

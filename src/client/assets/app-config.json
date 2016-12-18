@@ -1,108 +1,133 @@
 {
-    "moduleGroups": [
+    "navigations": [
         {
+            "name": "administration",
             "displayName": "Administration",
+            "path": "",
+            "longPath": "",
+            "icon": "ms-Icon--Product",
+            "order": 1,
             "hidden": false,
-            "modules": [
+            "children": [
                 {
-                    "name": "Home",
-                    "path": "/home",
-                    "longPath": "/home",
-                    "order": 1,
-                    "hidden": false
-                },
-                {
-                    "name": "Admin",
+                    "name": "admin",
+                    "displayName": "Admin",
                     "path": "admin",
                     "longPath": "/home/admin",
+                    "icon": "ms-Icon--Product",
                     "order": 2,
                     "hidden": false
                 },
                 {
-                    "name": "About",
+                    "name": "about",
+                    "displayName": "About",
                     "path": "about",
                     "longPath": "/home/about",
+                    "icon": "ms-Icon--Product",
                     "order": 3,
                     "hidden": false
                 }
             ]
         },
         {
+            "name": "transactions",
             "displayName": "Transactions",
+            "path": "",
+            "longPath": "",
+            "icon": "ms-Icon--Product",
+            "order": 2,
             "hidden": false,
-            "modules": [
+            "children": [
                 {
-                    "name": "Sample data list",
+                    "name": "sample-data-list",
+                    "displayName": "Sample data list",
                     "path": "transaction/a",
                     "longPath": "/home/transaction/a",
+                    "icon": "ms-Icon--Product",
                     "order": 1,
                     "hidden": false
                 },
                 {
-                    "name": "Transaction B",
+                    "name": "transaction-b",
+                    "displayName": "Transaction B",
                     "path": "transaction/b",
                     "longPath": "/home/transaction/b",
+                    "icon": "ms-Icon--Product",
                     "order": 2,
                     "hidden": false
                 },
                 {
-                    "name": "Transaction C",
-                    "path": "transaction/c",
-                    "longPath": "/home/transaction/c",
-                    "order": 3,
-                    "hidden": false
-                },
-                {
-                    "name": "Dynamic Form",
+                    "name": "dynamic-form",
+                    "displayName": "Dynamic Form",
                     "path": "transaction/dynamic-form",
                     "longPath": "/home/transaction/dynamic-form",
+                    "icon": "ms-Icon--Product",
                     "order": 4,
                     "hidden": false
                 }
             ]
         },
         {
+            "name": "master-data",
             "displayName": "Master Data",
+            "path": "",
+            "longPath": "",
+            "icon": "ms-Icon--Product",
+            "order": 4,
             "hidden": false,
-            "modules": [
+            "children": [
                 {
-                    "name": "User",
+                    "name": "user",
+                    "displayName": "User",
                     "path": "user",
                     "longPath": "/home/user",
+                    "icon": "ms-Icon--Product",
                     "order": 1,
                     "hidden": false
                 },
                 {
-                    "name": "User Role",
+                    "name": "user-role",
+                    "displayName": "User Role",
                     "path": "user-role",
                     "longPath": "/home/user-role",
+                    "icon": "ms-Icon--Product",
                     "order": 2,
                     "hidden": false
                 },
                 {
-                    "name": "Setting",
+                    "name": "setting",
+                    "displayName": "Setting",
                     "path": "setting",
                     "longPath": "/home/setting",
+                    "icon": "ms-Icon--Product",
                     "order": 3,
                     "hidden": false
                 },
                 {
-                    "name": "Contact",
+                    "name": "contact",
+                    "displayName": "Contact",
                     "path": "contact",
                     "longPath": "/home/contact",
+                    "icon": "ms-Icon--Product",
                     "order": 4,
                     "hidden": false
                 }
             ]
         },
         {
-            "displayName": "HiddenSection",
+            "name": "invisible-navigation",
+            "displayName": "Invisible Navigation",
+            "path": "",
+            "longPath": "",
+            "icon": "ms-Icon--Product",
+            "order": 5,
             "hidden": true,
-            "modules": [
+            "children": [
                 {
                     "name": "Not Found",
                     "path": "page-not-found",
                     "longPath": "/home/page-not-found",
+                    "icon": "ms-Icon--Product",
                     "order": 1,
                     "hidden": true
                 },
@@ -110,10 +135,31 @@
                     "name": "Forbidden",
                     "path": "forbidden",
                     "longPath": "/home/forbidden",
+                    "icon": "ms-Icon--Product",
                     "order": 2,
                     "hidden": true
                 }
             ]
+        },
+        {
+            "name": "dashboard",
+            "displayName": "Dashboard",
+            "path": "/home",
+            "longPath": "/home",
+            "icon": "ms-Icon--Product",
+            "hidden": false,
+            "order": 0,
+            "children": []
+        },
+        {
+            "name": "transaction-c",
+            "displayName": "Transaction C",
+            "path": "transaction/c",
+            "longPath": "/home/transaction/c",
+            "icon": "ms-Icon--Product",
+            "order": 3,
+            "hidden": false,
+            "children": []
         }
     ]
 }

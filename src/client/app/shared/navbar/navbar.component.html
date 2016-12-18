@@ -1,3 +1,16 @@
-<div *ngFor="let section of navbar.sections">
-  <navbar-section *ngIf="!section.isHidden" [navbarSection]="section" (sectionExpanded)="navbar.expandSection($event)"></navbar-section>
+<div *ngFor="let navigation of navigations" class="ms-Nav-group LinkContainer" (expanded)="navigation.expandSection($event)"
+  [class.is-expanded]="navigation.isExpanded">
+  <div *ngIf="navigation.children.length == 0">
+    <a class="ms-Link ms-font-l ms-fontWeight-semilight ms-bgColor-neutralLighterAlt--hover" [routerLink]="[navigation.path]"
+      [routerLinkActive]="['is-selected']" [routerLinkActiveOptions]="{exact:true}" [style.padding-left.px]="navigation.paddingLeftPx">
+      <i class="{{'ms-Icon ' + navigation.icon}}"></i> {{navigation.displayName}}
+    </a>
+  </div>
+  <button *ngIf="navigation.children.length > 0" class="ms-Nav-groupButton" (click)="toggle(navigation)">
+    <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronRight"></i>
+    <span>{{navigation.displayName}}</span>
+  </button>
+  <div *ngIf="navigation.isExpanded" class="ms-Nav-groupContent ms-u-slideDownIn20">
+    <aside [navigations]="navigation.children"></aside>
+  </div>
 </div>
