@@ -16,10 +16,9 @@
 
 .text-center{
   text-align: left;
-  line-height: 38px;
   color: #005a9e;
 }
 
 .pull-down {
-  vertical-align: bottom;
+  vertical-align: top;
 }

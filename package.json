@@ -134,12 +134,13 @@
     "@angular/platform-browser": "~2.2.3",
     "@angular/platform-browser-dynamic": "~2.2.3",
     "@angular/router": "~3.2.3",
-    "intl": "^1.2.5",
     "core-js": "^2.4.1",
+    "intl": "^1.2.5",
+    "jquery": "3.1.1",
+    "ng2-smart-table": "^0.4.0-5",
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-rc.4",
     "systemjs": "0.19.41",
-    "zone.js": "0.7.2",
-    "jquery": "3.1.1"
+    "zone.js": "0.7.2"
   }
 }

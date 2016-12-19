@@ -1,6 +1,5 @@
 :host {
   display: block;
-  padding: 0 16px;
 }
 
 
@@ -12,6 +11,6 @@
   top: 30%;
   left: 50%;
   margin-top: -50px;
-  margin-left: -170px;
+  margin-left: -180px;
   color: #005a9e
 }

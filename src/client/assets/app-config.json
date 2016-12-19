@@ -5,7 +5,7 @@
             "displayName": "Administration",
             "path": "",
             "longPath": "",
-            "icon": "ms-Icon--Product",
+            "icon": "ms-Icon--Settings",
             "order": 1,
             "hidden": false,
             "children": [
@@ -14,7 +14,7 @@
                     "displayName": "Admin",
                     "path": "admin",
                     "longPath": "/home/admin",
-                    "icon": "ms-Icon--Product",
+                    "icon": "ms-Icon--DeveloperTools",
                     "order": 2,
                     "hidden": false
                 },
@@ -23,7 +23,7 @@
                     "displayName": "About",
                     "path": "about",
                     "longPath": "/home/about",
-                    "icon": "ms-Icon--Product",
+                    "icon": "ms-Icon--Permissions",
                     "order": 3,
                     "hidden": false
                 }
@@ -34,7 +34,7 @@
             "displayName": "Transactions",
             "path": "",
             "longPath": "",
-            "icon": "ms-Icon--Product",
+            "icon": "ms-Icon--Work",
             "order": 2,
             "hidden": false,
             "children": [
@@ -43,7 +43,7 @@
                     "displayName": "Sample data list",
                     "path": "transaction/a",
                     "longPath": "/home/transaction/a",
-                    "icon": "ms-Icon--Product",
+                    "icon": "ms-Icon--CalendarDay",
                     "order": 1,
                     "hidden": false
                 },
@@ -52,7 +52,7 @@
                     "displayName": "Transaction B",
                     "path": "transaction/b",
                     "longPath": "/home/transaction/b",
-                    "icon": "ms-Icon--Product",
+                    "icon": "ms-Icon--ReminderGroup",
                     "order": 2,
                     "hidden": false
                 },
@@ -61,7 +61,7 @@
                     "displayName": "Dynamic Form",
                     "path": "transaction/dynamic-form",
                     "longPath": "/home/transaction/dynamic-form",
-                    "icon": "ms-Icon--Product",
+                    "icon": "ms-Icon--Design",
                     "order": 4,
                     "hidden": false
                 }
@@ -72,7 +72,7 @@
             "displayName": "Master Data",
             "path": "",
             "longPath": "",
-            "icon": "ms-Icon--Product",
+            "icon": "ms-Icon--ReopenPages",
             "order": 4,
             "hidden": false,
             "children": [
@@ -146,7 +146,7 @@
             "displayName": "Dashboard",
             "path": "/home",
             "longPath": "/home",
-            "icon": "ms-Icon--Product",
+            "icon": "ms-Icon--TaskManager",
             "hidden": false,
             "order": 0,
             "children": []
@@ -156,7 +156,7 @@
             "displayName": "Transaction C",
             "path": "transaction/c",
             "longPath": "/home/transaction/c",
-            "icon": "ms-Icon--Product",
+            "icon": "ms-Icon--EditNote",
             "order": 3,
             "hidden": false,
             "children": []

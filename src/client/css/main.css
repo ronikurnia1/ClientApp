@@ -14,9 +14,11 @@ body {
 /* Set up a default font and some padding to provide breathing room */
 body {
   height: 100%;
-  font-family: 'Segoe UI WestEuropean', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Regular', 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  background-color: #eeeeee;
+  color: #535353;  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -43,11 +45,10 @@ html[dir=ltr] .ms-Nav-groupButton {
 }
 
 html[dir=ltr] .ms-Nav-groupChevron.ms-Icon {
-  left: 15px;
+  left: 218px;
 }
 
 html[dir=ltr] .sidebarContainer {
-  border-right: 1px solid #eeeeee;
   left: 0;
 }
 
@@ -65,7 +66,6 @@ html[dir=rtl] .ms-Nav-groupButton {
 }
 
 html[dir=rtl] .sidebarContainer {
-  border-left: 1px solid #eeeeee;
   right: 0;
 }
 
@@ -74,27 +74,36 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   border-left: 0px;
 }
 
-.sidebarHeader {
-  position: absolute;
-  top: 47px;
-  left: 0;
-  width: 240px;
-  height: 10px;
-  background: #f5f5f5;
-  border-right: 1px solid #eaeaea;
-}
+
 .sidebarContainer {
+  padding-top: 20px;
   position: absolute;
   width: 240px;
-  top: 57px;
+  top: 48px;
   left: 0;
   bottom: 0;
-  border-right: 1px solid #eaeaea;
-  background: #f5f5f5;
+  box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+  -webkit-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+  -moz-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+  -o-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+  -ms-box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
+  background: #ffffff;
   box-sizing: border-box;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.ms-Nav-groupButton .ms-Icon {
+  margin-right: 8px;
+  font-size: large;
+  vertical-align: bottom;
+}
+
+.ms-Link .ms-Icon {
+  margin-right: 8px;
+  font-size: large;
+  vertical-align: bottom;
 }
 
 .sidebarSection {
@@ -108,8 +117,10 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 .ms-Nav-groupChevron.ms-Icon {
   position: absolute;
   height: 40px;
+  left: 150px;
   line-height: 40px;
-  font-size: 13px;
+  font-size: 10px;
+  font-weight: bold;
   transition: transform 0.1s linear;
   transition: transform 0.1s linear,-webkit-transform 0.1s linear;
 }
@@ -119,27 +130,28 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
       transform: rotate(90deg);
 }
 
+.ms-Nav-group.is-expanded .ms-Nav-groupButton {
+  background-color: rgba(33, 33, 33, 0.1);  
+}
+
 .ms-Nav-groupButton {
   display: block;
   width: 100%;
   height: 40px;
-  font-family: 'Segoe UI Regular WestEuropean','Segoe UI',Tahoma,Arial,sans-serif;
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 40px;
-  margin: 5px 0;
-  padding: 0 40px;
-  background: 0 0;
+  background-color: #ffffff;
+  font-family: 'Roboto Regular','Roboto', 'Segoe UI','-apple-system','BlinkMacSystemFont','Helvetica Neue','sans-serif';
+  padding: 0 18px;
   border: none;
-  border-bottom: 1px solid #eaeaea;
-  text-transform: uppercase;
   cursor: pointer;
-  color: #333333;
-  background: #f5f5f5;
+  color: #535353;  
   outline: transparent;
 }
 
 .ms-Nav-groupButton:hover {
-  background: #fcfcfc;
+  background-color: rgba(33, 33, 33, 0.1);
 }
 
 .ms-Nav-groupContent {
@@ -163,7 +175,6 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 
 
 .LinkContainer {
-  margin-bottom: 0px;
   position: relative;
 }
 
@@ -171,16 +182,20 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   position: relative;
   display: block;
   padding: 8px 10px 8px 16px;
+  color: #535353;  
+  font-weight: 600;
+    -webkit-font-smoothing: antialiased;
 }
 
 .LinkContainer a:hover {
-  background: #fcfcfc;
+  background-color: rgba(33, 33, 33, 0.1);
+  color: #535353;  
 }
 
 .LinkContainer a.is-selected {
-  background-color: #fefefe;
+  background-color: rgba(33, 33, 33, 0.1);
   position: relative;
-  color: #333333;
+  color: #535353;  
 }
 
 .LinkContainer a.is-selected:after {
