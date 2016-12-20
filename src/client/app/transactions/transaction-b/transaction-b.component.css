@@ -2,3 +2,9 @@
   display: block;
   padding: 0 16px;
 }
+
+.personaCard-customized {
+  max-width: 330px;
+  float: left;
+  margin: 10px;
+}
