@@ -13,22 +13,6 @@ declare const fabric: any;
 })
 export class TransactionAComponent implements AfterViewInit {
 
-  settings = {
-    columns: {
-      id: {
-        title: 'ID'
-      },
-      name: {
-        title: 'Full Name'
-      },
-      username: {
-        title: 'User Name'
-      },
-      email: {
-        title: 'Email'
-      }
-    }
-  };
   constructor(private elementRef: ElementRef) { }
 
   ngAfterViewInit() {
