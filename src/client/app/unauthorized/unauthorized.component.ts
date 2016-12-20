@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
 @Component({
   moduleId: module.id,
   selector: 'content',
-  templateUrl: 'forbidden.component.html',
-  styleUrls: ['forbidden.component.css']
+  templateUrl: 'unauthorized.component.html',
+  styleUrls: ['unauthorized.component.css']
 })
-export class ForbiddenComponent {
+export class UnauthorizedComponent {
 
 }

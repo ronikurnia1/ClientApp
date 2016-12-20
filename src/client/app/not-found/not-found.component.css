@@ -1,16 +1,9 @@
 :host {
   display: block;
+  padding: 0 16px;
 }
 
 
 .centered {
-  min-width: 300px;
-  max-height: 320px;
-  padding: 20px 30px;
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -180px;
   color: #005a9e
 }

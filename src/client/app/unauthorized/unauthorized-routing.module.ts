@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ForbiddenComponent } from './forbidden.component';
+import { UnauthorizedComponent } from './unauthorized.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: '', component: ForbiddenComponent}
+      { path: '', component: UnauthorizedComponent}
     ])
   ],
   exports: [RouterModule]
 })
-export class ForbiddenRoutingModule { }
+export class UnauthorizedRoutingModule { }

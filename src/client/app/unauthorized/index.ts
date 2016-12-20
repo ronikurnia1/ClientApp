@@ -1,4 +1,4 @@
 /**
  * This barrel file provides the export for the lazy loaded AdminComponent.
  */
-export * from './forbidden.component';
+export * from './unauthorized.component';

@@ -16,6 +16,10 @@ export class AuthCheckerService implements CanActivate {
             this.router.navigate(['login', { returnUrl: state.url }]);
             return false;
         }
+        if (state.url === '/home/unauthorized') {
+            // no need to check
+            return true;
+        }
 
         for (let i = 0; i < navigations.length; i++) {
             let children: any[] = navigations[i].children;
@@ -26,7 +30,7 @@ export class AuthCheckerService implements CanActivate {
 
         console.log("Forbidden");
         // not authorized (403) so redirect to not authorized page
-        this.router.navigate(['home/forbidden']);
+        this.router.navigate(['home/unauthorized']);
         return false;
     }
 
