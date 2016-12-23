@@ -26,5 +26,9 @@ export class TransactionBComponent implements AfterViewInit {
     for (var i = 0; i < PersonaCardElement.length; i++) {
       new fabric.PersonaCard(PersonaCardElement[i]);
     }
+    let SearchBoxElements = this.elementRef.nativeElement.querySelectorAll(".ms-SearchBox");
+    for (let i = 0; i < SearchBoxElements.length; i++) {
+      new fabric['SearchBox'](SearchBoxElements[i]);
+    }
   }
 }
