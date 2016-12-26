@@ -57,7 +57,7 @@
             <label class="ms-Label" [class.is-required]="field.required" [attr.for]="field.key">{{field.label}}</label>
             <i class="ms-Dropdown-caretDown ms-Icon ms-Icon--ChevronDown"></i>
             <select class="ms-Dropdown-select" [id]="field.key" [formControlName]="field.key">
-            <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
+            <option *ngFor="let opt of field.options" [value]="opt.key" [attr.selected]="opt.selected">{{opt.value}}</option>
         </select>
         </div>
         <div *ngIf="invalid" class="ms-TextField-description margin-bottom-8px">{{field.label}} is required</div>
@@ -87,7 +87,7 @@
     <div *ngSwitchCase="'toggle'" class="ms-Toggle ms-TextField">
         <span class="ms-Toggle-description">{{field.label}}</span>
         <input type="checkbox" [id]="field.key" [formControlName]="field.key" class="ms-Toggle-input" />
-        <label [attr.for]="field.key" class="ms-Toggle-field">
+        <label [attr.for]="field.key" class="ms-Toggle-field" [class.is-selected]="field.value">
             <span class="ms-Label ms-Label--off">Off</span>
             <span class="ms-Label ms-Label--on">On</span>
         </label>

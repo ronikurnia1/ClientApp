@@ -9480,7 +9480,7 @@
 .ms-CommandBar .ms-SearchBox,
 .ms-CommandBar .ms-SearchBox-field,
 .ms-CommandBar .ms-SearchBox-label {
-  height: 100%;
+  height: 30px;
 }
 
 .ms-CommandBar .ms-SearchBox {
@@ -9510,7 +9510,7 @@
 
 @media only screen and (min-width:1024px) {
   .ms-CommandBar .ms-SearchBox {
-    margin-left: 24px;
+    margin-left: 0;
   }
 }
 
@@ -9567,6 +9567,7 @@
   display: inline-block;
   position: relative;
   vertical-align: top;
+  margin-right: 8px;
 }
 
 .ms-CommandButton.is-hidden {
@@ -9681,7 +9682,7 @@
 
 .ms-CommandButton-icon {
   display: inline-block;
-  margin-left: 8px;
+  margin-left: 2px;
   position: relative;
   font-size: 16px;
   min-width: 16px;
@@ -9772,6 +9773,7 @@
 
 .ms-CommandButton.ms-CommandButton--noLabel .ms-CommandButton-icon {
   margin-left: 0;
+  height: 32px;
 }
 
 .ms-CommandButton.ms-CommandButton--noLabel .ms-CommandButton-label {
@@ -11275,7 +11277,7 @@
 .ms-ListItem {
   padding: 0;
   *zoom: 1;
-  padding: 9px 28px 3px;
+  padding: 9px 38px 3px;
   position: relative;
   display: block;
 }
@@ -11432,6 +11434,10 @@
   height: 15px;
   width: 15px;
   border: 1px solid #767676;
+}
+
+.ms-ListItem.is-selected {
+  background-color: #eaeaea;
 }
 
 .ms-ListItem.is-selected:before {
@@ -11849,7 +11855,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  top: 0;
+  top: 47px;
   z-index: 0;
   display: none;
 }
@@ -11975,7 +11981,6 @@
 }
 
 .ms-Panel-contentInner {
-  margin-top: 40px;
   padding: 0 16px 20px;
   overflow-y: auto;
   height: 100%;
@@ -12017,7 +12022,7 @@
   right: 0;
   position: fixed;
   left: 0;
-  top: 0;
+  top: 47px;
   z-index: 10;
 }
 
@@ -13524,12 +13529,12 @@
   margin: 0;
   padding: 0;
   box-shadow: none;
-  height: 36px;
+  height: 32px;
   color: #333333;
   font-size: 14px;
   font-weight: 400;
   position: relative;
-  margin-bottom: 10px;
+  margin: 5px 0 0;
   display: inline-block;
   overflow: hidden;
   background-color: #ffffff;
@@ -13587,7 +13592,6 @@
 .ms-SearchBox-clear .ms-CommandButton-button {
   background-color: #0078d7;
   color: #ffffff;
-  height: 36px;
 }
 
 .ms-SearchBox-clear .ms-CommandButton-icon {
@@ -13618,8 +13622,8 @@
   font-weight: 300;
   font-size: 14px;
   color: #000000;
-  height: 36px;
-  padding: 6px 45px 7px 3px;
+  height: 32px;
+  padding: 6px 10px 7px 3px;
   width: 208px;
   background-color: transparent;
   z-index: 5;
@@ -13640,8 +13644,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  height: 36px;
-  line-height: 36px;
+  height: 32px;
+  line-height: 30px;
   color: #666666;
 }
 
@@ -13852,7 +13856,6 @@
 
 @media only screen and (max-width:639px) {
   .ms-SearchBox.ms-SearchBox--commandBar.is-active .ms-SearchBox-field {
-    width: 100%;
     padding-left: 100px;
   }
 

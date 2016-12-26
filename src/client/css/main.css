@@ -17,7 +17,7 @@ body {
   font-family: 'Roboto Regular', 'Roboto', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 400;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   color: #535353;  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,7 +36,7 @@ content {
 }
 
 html[dir=ltr] content {
-  left: 250px;
+  left: 240px;
   right: 0;
 }
 
@@ -54,7 +54,7 @@ html[dir=ltr] .sidebarContainer {
 
 html[dir=rtl] content {
   left: 0;
-  right: 250px;
+  right: 240px;
 }
 
 html[dir=rtl] .ms-Nav-groupChevron.ms-Icon {
@@ -79,7 +79,7 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   padding-top: 20px;
   position: absolute;
   width: 240px;
-  top: 48px;
+  top: 47px;
   left: 0;
   bottom: 0;
   box-shadow: 0 0 10px 0 rgba(33,33,33,.2);
@@ -206,4 +206,15 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.contentBox {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(33,33,33,.2);
+  -webkit-box-shadow: 0 1px 3px rgba(33,33,33,.2);
+  -moz-box-shadow: 0 1px 3px rgba(33,33,33,.2);
+  -o-box-shadow: 0 1px 3px rgba(33,33,33,.2);
+  -ms-box-shadow: 0 1px 3px rgba(33,33,33,.2);
 }

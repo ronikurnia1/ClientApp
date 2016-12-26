@@ -39,7 +39,7 @@ export class FormDataService {
         options: [
           { key: "", value: "" },
           { key: "male", value: "Male" },
-          { key: "female", value: "Female" },
+          { key: "female", value: "Female", selected: true },
           { key: "shemale", value: "Shemale" }
         ],
         value: dataModel.gender,
@@ -69,7 +69,7 @@ export class FormDataService {
         label: "Size",
         required: true,
         options: [
-          { key: "small", value: "Small" },
+          { key: "small", value: "Small", selected: true },
           { key: "medium", value: "Medium" },
           { key: "large", value: "Large" }
         ],
@@ -77,12 +77,12 @@ export class FormDataService {
         order: 5
       }),
       new FieldToggle({
-        key: "allow-access",
+        key: "allow",
         label: "Allow Access",
         required: true,
         value: dataModel.allow,
         order: 7
-      })      
+      })
     ];
     return fields.sort((a, b) => a.order - b.order);
   }

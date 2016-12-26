@@ -11,19 +11,19 @@ declare const fabric: any;
     providers: [FormDataService]
 })
 export class SampleDynamicFormComponent {
-    title = "Sample dynamic form works!";
+    title = "Dynamic Form";
     fields: any[];
 
     constructor(private service: FormDataService) {
-        this.fields = service.getFields({} 
-            // size: "large",
-            // username: "Roni Kurniawan",
-            // email: "roniku@gmail.com",
-            // gender: "female",
-            // birthdate: "2016-12-10",
-            // active: true
-         //});
-        );
+        this.fields = service.getFields({
+            size: "large",
+            username: "Roni Kurniawan",
+            email: "roniku@gmail.com",
+            gender: "female",
+            birthdate: "21-Dec-2016",
+            active: true,
+            allow: true
+        });
     }
 
 }

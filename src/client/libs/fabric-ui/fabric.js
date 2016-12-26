@@ -1,5 +1,5 @@
 /**
- * Office UI Fabric JS 1.2.0
+ * Office UI Fabric JS 1.3.0
  * The JavaScript front-end framework for building experiences for Office 365.
  **/
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
@@ -1392,9 +1392,11 @@ var fabric;
                 this._searchBox.removeEventListener("keyup", this._boundEnableClose);
                 setTimeout(function () {
                     if (!_this._searchBox.contains(document.activeElement)) {
-                        _this._clearSearchBox();
-                        _this._collapseSearchBox();
-                        _this.setCollapsedListeners();
+                        if (_this._searchBoxField.value.length === 0) {
+                            _this._clearSearchBox();
+                            _this._collapseSearchBox();
+                            _this.setCollapsedListeners();
+                        }
                     }
                 }, 10);
             }
@@ -2447,13 +2449,14 @@ var fabric;
             /** Create a new option as a list item, and add it to the replacement dropdown */
             for (var i = 0; i < _originalOptions.length; ++i) {
                 var option = _originalOptions[i];
-                if (option.selected) {
-                    this._newDropdownLabel.innerHTML = option.text;
-                }
                 var newItem = document.createElement("li");
                 newItem.classList.add(DROPDOWN_ITEM_CLASS);
                 if (option.disabled) {
                     newItem.classList.add(IS_DISABLED_CLASS);
+                }
+                if (option.selected === true) {
+                    this._newDropdownLabel.innerHTML = option.text;
+                    newItem.classList.add(IS_SELECTED_CLASS);
                 }
                 newItem.innerHTML = option.text;
                 newItem.addEventListener("click", this._onItemSelection);

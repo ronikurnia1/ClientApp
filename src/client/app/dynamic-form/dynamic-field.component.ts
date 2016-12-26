@@ -14,8 +14,9 @@ export class DynamicFieldComponent {
     @Input() submitted: boolean;
 
     get invalid() {
-        return (!this.form.controls[this.field.key].valid && !this.form.controls[this.field.key].pristine) || 
-        (!this.form.controls[this.field.key].valid && this.submitted) || (!this.form.controls[this.field.key].valid && 
-        this.form.controls[this.field.key].dirty)
+        return (!this.form.controls[this.field.key].valid && !this.form.controls[this.field.key].pristine) ||
+            (!this.form.controls[this.field.key].valid && this.submitted) || (!this.form.controls[this.field.key].valid &&
+                this.form.controls[this.field.key].dirty)
     }
+
 }

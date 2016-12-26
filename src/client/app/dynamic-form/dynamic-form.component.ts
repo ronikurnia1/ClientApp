@@ -77,6 +77,7 @@ export class DynamicFormComponent implements OnInit, AfterViewInit, OnDestroy {
         let DropdownElements = this.elementRef.nativeElement.querySelectorAll(".ms-Dropdown");
         for (let i = 0; i < DropdownElements.length; ++i) {
             let Dropdown = new fabric["Dropdown"](DropdownElements[i]);
+            //Dropdown.setValue("female");
         }
 
         // PickaDate 
@@ -89,6 +90,10 @@ export class DynamicFormComponent implements OnInit, AfterViewInit, OnDestroy {
             let pickaDate = new fabric["DatePicker"](datePicker[i], { format: "dd-mmm-yyyy" });
             // get id
             let pickerId: string = datePicker[i].querySelectorAll(".ms-DatePicker-input")[0].id;
+            // Set default value
+            if (self.form.controls[pickerId].value) {
+                pickaDate.picker.set("select", self.form.controls[pickerId].value, { format: "dd-mmm-yyyy" });
+            }
             // wire-up event callback
             pickaDate.picker.on({
                 close: function () {
