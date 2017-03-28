@@ -6,8 +6,5 @@
     "**/coverage": true,
     "**/dist": true
   },
-
-      // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
-    "http.proxy": "http://roni.kurniawan:Dsfjho.1@10.1.1.26:80/",  
-    "https.proxy": "http://roni.kurniawan:Dsfjho.1@10.1.1.26:80/"    
+    "vsicons.presets.angular": true
 }
