@@ -14,6 +14,7 @@ export class ProjectConfig extends SeedConfig {
   constructor() {
     super();
     this.APP_TITLE = 'HospitaLite';
+    // this.GOOGLE_ANALYTICS_ID = 'Your site's ID';
 
     /* Enable typeless compiler runs (faster) between typed compiler runs. */
     // this.TYPED_COMPILE_INTERVAL = 5;
@@ -21,49 +22,37 @@ export class ProjectConfig extends SeedConfig {
     // Add `NPM` third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
-      { src: 'jquery/dist/jquery.min.js', inject: 'libs' },
+      {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
     ];
 
     // Add `local` third-party libraries to be injected/bundled.
     this.APP_ASSETS = [
       ...this.APP_ASSETS,
-      // { src: `${this.APP_SRC}/libs/fabric-ui/fabric.min.js`, inject: true, vendor: false },
+      // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
+      // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
       { src: `${this.APP_SRC}/libs/fabric-ui/fabric.js`, inject: true, vendor: false },
       { src: `${this.APP_SRC}/libs/fabric-ui/PickaDate.js`, inject: true, vendor: false },
       { src: `${this.CSS_SRC}/fabric-ui/fabric.min.css`, inject: true, vendor: false },
       { src: `${this.CSS_SRC}/fabric-ui/fabric.components.min.css`, inject: true, vendor: false }
-      // {src: `${this.APP_SRC}/your-path-to-lib/libs/jquery-ui.js`, inject: true, vendor: false}
-      // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
     ];
 
-    // Add packages (e.g. lodash)
+    // Add packages (e.g. ng2-translate)
     // let additionalPackages: ExtendPackages[] = [{
-    //   name: 'lodash',
-    //   path: `${this.APP_BASE}node_modules/lodash/lodash.js`,
-    //   packageMeta: {
-    //     main: 'index.js',
-    //     defaultExtension: 'js'
-    //   }
+    //   name: 'ng2-translate',
+    //   // Path to the package's bundle
+    //   path: 'node_modules/ng2-translate/bundles/ng2-translate.umd.js'
     // }];
     //
-    // or
-    //
-    // let additionalPackages: ExtendPackages[] = [];
-    
-    // additionalPackages.push({
-    //   name: 'smart-table',
-    //   path: `${this.APP_BASE}node_modules/ng2-smart-table/build/ng2-smart-table.js`,
-    //   packageMeta: {
-    //     main: 'index.js',
-    //     defaultExtension: 'js'
-    //   }
-    // });
-    
     // this.addPackagesBundles(additionalPackages);
 
+    /* Add proxy middleware */
+    // this.PROXY_MIDDLEWARE = [
+    //   require('http-proxy-middleware')('/api', { ws: false, target: 'http://localhost:3003' })
+    // ];
+
     /* Add to or override NPM module configurations: */
-    // this.mergeObject(this.PLUGIN_CONFIGS['browser-sync'], { ghostMode: false });
+    // this.PLUGIN_CONFIGS['browser-sync'] = { ghostMode: false };
   }
 
 }
