@@ -1,8 +1,7 @@
 import { EnvConfig } from './env-config.interface';
 
 const ProdConfig: EnvConfig = {
-  ENV: 'PROD',
-  Modules: []
+  ENV: 'PROD'
 };
 
 export = ProdConfig;
