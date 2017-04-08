@@ -39,6 +39,15 @@
             "hidden": false,
             "children": [
                 {
+                    "name": "reactive-form",
+                    "displayName": "Reactive Form",
+                    "path": "transaction/reactive-dynamic-form",
+                    "longPath": "/home/transaction/reactive-dynamic-form",
+                    "icon": "ms-Icon--CalendarDay",
+                    "order": 0,
+                    "hidden": false
+                },
+                {
                     "name": "sample-data-list",
                     "displayName": "Sample data list",
                     "path": "transaction/a",

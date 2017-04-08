@@ -12,6 +12,7 @@ import { AuthCheckerService } from '../shared/auth-checker/index';
           { path: '', loadChildren: './app/dashboard/dashboard.module#DashboardModule', canActivate: [AuthCheckerService] },
           { path: 'admin', loadChildren: './app/admin/admin.module#AdminModule', canActivate: [AuthCheckerService] },
           { path: 'about', loadChildren: './app/about/about.module#AboutModule', canActivate: [AuthCheckerService] },
+          { path: 'transaction/reactive-dynamic-form', loadChildren: './app/reactive-dynamic-form/dynamic-form-sample.module#DynamicFormSampleModule', canActivate: [AuthCheckerService] },
           { path: 'transaction/a', loadChildren: './app/transactions/transaction-a/transaction-a.module#TransactionAModule', canActivate: [AuthCheckerService] },
           { path: 'transaction/b', loadChildren: './app/transactions/transaction-b/transaction-b.module#TransactionBModule', canActivate: [AuthCheckerService] },
           { path: 'transaction/c', loadChildren: './app/transactions/transaction-c/transaction-c.module#TransactionCModule', canActivate: [AuthCheckerService] },
