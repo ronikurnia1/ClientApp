@@ -9,7 +9,14 @@ import { HomeModule } from './home/home.module';
 import { LoginModule } from './login/login.module';
 
 @NgModule({
-  imports: [BrowserModule, HttpModule, AppRoutingModule, HomeModule, LoginModule, SharedModule.forRoot()],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    HomeModule,
+    LoginModule,
+    SharedModule.forRoot()
+  ],
   declarations: [AppComponent],
   providers: [{
     provide: APP_BASE_HREF,

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
 
 import { SampleDynamicFormComponent } from './sample-dynamic-form.component';
 import { SampleDynamicFormRoutingModule } from './sample-dynamic-form-routing.module';

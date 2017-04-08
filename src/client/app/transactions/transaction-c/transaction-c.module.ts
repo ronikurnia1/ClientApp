@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TransactionCComponent } from './transaction-c.component';
 import { TransactionCRoutingModule } from './transaction-c-routing.module';
 
 @NgModule({
-  imports: [CommonModule, TransactionCRoutingModule],
+  imports: [TransactionCRoutingModule],
   declarations: [TransactionCComponent],
   exports: [TransactionCComponent]
 })

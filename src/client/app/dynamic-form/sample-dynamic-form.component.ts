@@ -19,7 +19,7 @@ export class SampleDynamicFormComponent {
             size: "large",
             username: "Roni Kurniawan",
             email: "roniku@gmail.com",
-            gender: "female",
+            gender: "male",
             birthdate: "21-Dec-2016",
             active: true,
             allow: true

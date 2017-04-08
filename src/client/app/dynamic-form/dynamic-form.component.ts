@@ -5,7 +5,6 @@ import { FieldControlService } from "./field-control.service";
 
 declare const fabric: any;
 
-
 @Component({
     moduleId: module.id,
     selector: "dynamic-form",
@@ -118,6 +117,7 @@ export class DynamicFormComponent implements OnInit, AfterViewInit, OnDestroy {
             let self = this;
             let id: string = ChoiceFieldGroupElements[i].id;
             let choiceFiledGroup = new fabric['ChoiceFieldGroup'](ChoiceFieldGroupElements[i], function (value: string) {
+                // console.log("Selected:", value);
                 self.form.controls[id].setValue(value);
             });
             choiceFiledGroup.setValue(self.form.controls[id].value);
