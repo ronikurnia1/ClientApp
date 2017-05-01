@@ -1,174 +1,176 @@
 {
-    "navigations": [
-        {
-            "name": "administration",
-            "displayName": "Administration",
-            "path": "",
-            "longPath": "",
-            "icon": "ms-Icon--Settings",
-            "order": 1,
-            "hidden": false,
-            "children": [
-                {
-                    "name": "admin",
-                    "displayName": "Admin",
-                    "path": "admin",
-                    "longPath": "/home/admin",
-                    "icon": "ms-Icon--DeveloperTools",
-                    "order": 2,
-                    "hidden": false
-                },
-                {
-                    "name": "about",
-                    "displayName": "About",
-                    "path": "about",
-                    "longPath": "/home/about",
-                    "icon": "ms-Icon--Permissions",
-                    "order": 3,
-                    "hidden": false
-                }
-            ]
-        },
-        {
-            "name": "transactions",
-            "displayName": "Transactions",
-            "path": "",
-            "longPath": "",
-            "icon": "ms-Icon--Work",
-            "order": 2,
-            "hidden": false,
-            "children": [
-                {
-                    "name": "reactive-form",
-                    "displayName": "Reactive Form",
-                    "path": "transaction/reactive-dynamic-form",
-                    "longPath": "/home/transaction/reactive-dynamic-form",
-                    "icon": "ms-Icon--CalendarDay",
-                    "order": 0,
-                    "hidden": false
-                },
-                {
-                    "name": "sample-data-list",
-                    "displayName": "Sample data list",
-                    "path": "transaction/a",
-                    "longPath": "/home/transaction/a",
-                    "icon": "ms-Icon--CalendarDay",
-                    "order": 1,
-                    "hidden": false
-                },
-                {
-                    "name": "transaction-b",
-                    "displayName": "Transaction B",
-                    "path": "transaction/b",
-                    "longPath": "/home/transaction/b",
-                    "icon": "ms-Icon--ReminderGroup",
-                    "order": 2,
-                    "hidden": false
-                },
-                {
-                    "name": "dynamic-form",
-                    "displayName": "Dynamic Form",
-                    "path": "transaction/dynamic-form",
-                    "longPath": "/home/transaction/dynamic-form",
-                    "icon": "ms-Icon--Design",
-                    "order": 4,
-                    "hidden": false
-                }
-            ]
-        },
-        {
-            "name": "master-data",
-            "displayName": "Master Data",
-            "path": "",
-            "longPath": "",
-            "icon": "ms-Icon--ReopenPages",
-            "order": 4,
-            "hidden": false,
-            "children": [
-                {
-                    "name": "user",
-                    "displayName": "User",
-                    "path": "user",
-                    "longPath": "/home/user",
-                    "icon": "ms-Icon--Product",
-                    "order": 1,
-                    "hidden": false
-                },
-                {
-                    "name": "user-role",
-                    "displayName": "User Role",
-                    "path": "user-role",
-                    "longPath": "/home/user-role",
-                    "icon": "ms-Icon--Product",
-                    "order": 2,
-                    "hidden": false
-                },
-                {
-                    "name": "setting",
-                    "displayName": "Setting",
-                    "path": "setting",
-                    "longPath": "/home/setting",
-                    "icon": "ms-Icon--Product",
-                    "order": 3,
-                    "hidden": false
-                },
-                {
-                    "name": "contact",
-                    "displayName": "Contact",
-                    "path": "contact",
-                    "longPath": "/home/contact",
-                    "icon": "ms-Icon--Product",
-                    "order": 4,
-                    "hidden": false
-                }
-            ]
-        },
-        {
-            "name": "invisible-navigation",
-            "displayName": "Invisible Navigation",
-            "path": "",
-            "longPath": "",
-            "icon": "ms-Icon--Product",
-            "order": 5,
-            "hidden": true,
-            "children": [
-                {
-                    "name": "Not Found",
-                    "path": "page-not-found",
-                    "longPath": "/home/page-not-found",
-                    "icon": "ms-Icon--Product",
-                    "order": 1,
-                    "hidden": true
-                },
-                {
-                    "name": "Forbidden",
-                    "path": "forbidden",
-                    "longPath": "/home/forbidden",
-                    "icon": "ms-Icon--Product",
-                    "order": 2,
-                    "hidden": true
-                }
-            ]
-        },
-        {
-            "name": "dashboard",
-            "displayName": "Dashboard",
-            "path": "/home",
-            "longPath": "/home",
-            "icon": "ms-Icon--TaskManager",
-            "hidden": false,
-            "order": 0,
-            "children": []
-        },
-        {
-            "name": "transaction-c",
-            "displayName": "Transaction C",
-            "path": "transaction/c",
-            "longPath": "/home/transaction/c",
-            "icon": "ms-Icon--EditNote",
-            "order": 3,
-            "hidden": false,
-            "children": []
-        }
-    ]
+    "appConfig": {
+        "navigations": [
+            {
+                "name": "administration",
+                "displayName": "Administration",
+                "path": "",
+                "longPath": "",
+                "icon": "ms-Icon--Settings",
+                "order": 1,
+                "hidden": false,
+                "children": [
+                    {
+                        "name": "admin",
+                        "displayName": "Admin",
+                        "path": "admin",
+                        "longPath": "/home/admin",
+                        "icon": "ms-Icon--DeveloperTools",
+                        "order": 2,
+                        "hidden": false
+                    },
+                    {
+                        "name": "about",
+                        "displayName": "About",
+                        "path": "about",
+                        "longPath": "/home/about",
+                        "icon": "ms-Icon--Permissions",
+                        "order": 3,
+                        "hidden": false
+                    }
+                ]
+            },
+            {
+                "name": "transactions",
+                "displayName": "Transactions",
+                "path": "",
+                "longPath": "",
+                "icon": "ms-Icon--Work",
+                "order": 2,
+                "hidden": false,
+                "children": [
+                    {
+                        "name": "reactive-form",
+                        "displayName": "Reactive Form",
+                        "path": "transaction/reactive-dynamic-form",
+                        "longPath": "/home/transaction/reactive-dynamic-form",
+                        "icon": "ms-Icon--CalendarDay",
+                        "order": 0,
+                        "hidden": false
+                    },
+                    {
+                        "name": "sample-data-list",
+                        "displayName": "Sample data list",
+                        "path": "transaction/a",
+                        "longPath": "/home/transaction/a",
+                        "icon": "ms-Icon--CalendarDay",
+                        "order": 1,
+                        "hidden": false
+                    },
+                    {
+                        "name": "transaction-b",
+                        "displayName": "Transaction B",
+                        "path": "transaction/b",
+                        "longPath": "/home/transaction/b",
+                        "icon": "ms-Icon--ReminderGroup",
+                        "order": 2,
+                        "hidden": false
+                    },
+                    {
+                        "name": "dynamic-form",
+                        "displayName": "Dynamic Form",
+                        "path": "transaction/dynamic-form",
+                        "longPath": "/home/transaction/dynamic-form",
+                        "icon": "ms-Icon--Design",
+                        "order": 4,
+                        "hidden": false
+                    }
+                ]
+            },
+            {
+                "name": "master-data",
+                "displayName": "Master Data",
+                "path": "",
+                "longPath": "",
+                "icon": "ms-Icon--ReopenPages",
+                "order": 4,
+                "hidden": false,
+                "children": [
+                    {
+                        "name": "user",
+                        "displayName": "User",
+                        "path": "user",
+                        "longPath": "/home/user",
+                        "icon": "ms-Icon--Product",
+                        "order": 1,
+                        "hidden": false
+                    },
+                    {
+                        "name": "user-role",
+                        "displayName": "User Role",
+                        "path": "user-role",
+                        "longPath": "/home/user-role",
+                        "icon": "ms-Icon--Product",
+                        "order": 2,
+                        "hidden": false
+                    },
+                    {
+                        "name": "setting",
+                        "displayName": "Setting",
+                        "path": "setting",
+                        "longPath": "/home/setting",
+                        "icon": "ms-Icon--Product",
+                        "order": 3,
+                        "hidden": false
+                    },
+                    {
+                        "name": "contact",
+                        "displayName": "Contact",
+                        "path": "contact",
+                        "longPath": "/home/contact",
+                        "icon": "ms-Icon--Product",
+                        "order": 4,
+                        "hidden": false
+                    }
+                ]
+            },
+            {
+                "name": "invisible-navigation",
+                "displayName": "Invisible Navigation",
+                "path": "",
+                "longPath": "",
+                "icon": "ms-Icon--Product",
+                "order": 5,
+                "hidden": true,
+                "children": [
+                    {
+                        "name": "Not Found",
+                        "path": "page-not-found",
+                        "longPath": "/home/page-not-found",
+                        "icon": "ms-Icon--Product",
+                        "order": 1,
+                        "hidden": true
+                    },
+                    {
+                        "name": "Forbidden",
+                        "path": "forbidden",
+                        "longPath": "/home/forbidden",
+                        "icon": "ms-Icon--Product",
+                        "order": 2,
+                        "hidden": true
+                    }
+                ]
+            },
+            {
+                "name": "dashboard",
+                "displayName": "Dashboard",
+                "path": "/home",
+                "longPath": "/home",
+                "icon": "ms-Icon--TaskManager",
+                "hidden": false,
+                "order": 0,
+                "children": []
+            },
+            {
+                "name": "transaction-c",
+                "displayName": "Transaction C",
+                "path": "transaction/c",
+                "longPath": "/home/transaction/c",
+                "icon": "ms-Icon--EditNote",
+                "order": 3,
+                "hidden": false,
+                "children": []
+            }
+        ]
+    }
 }

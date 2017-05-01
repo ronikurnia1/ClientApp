@@ -8,19 +8,27 @@ export class AuthenticationService {
 
     login(username: string, password: string): Observable<string> {
         // TODO: use this
-        //return this.http.post('/api/authenticate', JSON.stringify({ username: username, password: password }))
-        
-        // for testing only
-        return this.http.get('/assets/app-config.json')
+        let headers = new Headers();
+        headers.append("Accept", "application/json");
+        headers.append("Content-Type", "application/json");
+        return this.http.post('/login',
+            JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                localStorage.setItem("appConfig", JSON.stringify(response.json()));
-                // login successful if there's a jwt token in the response
-                // let user = response.json();
-                // if (user && user.token) {
-                //     // store user details and jwt token in local storage to keep user logged in between page refreshes
-                //     localStorage.setItem('currentUser', JSON.stringify(user));
-                // }
+                localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
+
             }).catch(this.handleError);
+
+        // for testing only
+        // return this.http.get('/assets/app-config.json')
+        //     .map((response: Response) => {
+        //         localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
+        //         // login successful if there's a jwt token in the response
+        //         // let user = response.json();
+        //         // if (user && user.token) {
+        //         //     // store user details and jwt token in local storage to keep user logged in between page refreshes
+        //         //     localStorage.setItem('currentUser', JSON.stringify(user));
+        //         // }
+        //     }).catch(this.handleError);
     }
 
     logout() {

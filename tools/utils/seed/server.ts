@@ -5,7 +5,6 @@ import { resolve } from 'path';
 
 import * as codeChangeTool from './code_change_tools';
 import Config from '../../config';
-
 /**
  * Serves the Single Page Application. More specifically, calls the `listen` method, which itself launches BrowserSync.
  */
@@ -18,7 +17,7 @@ export function serveSPA() {
  * which itself initiates a BrowserSync reload.
  * @param {any} e - The file that has changed.
  */
-export function notifyLiveReload(e:any) {
+export function notifyLiveReload(e: any) {
   let fileName = e.path;
   codeChangeTool.changed(fileName);
 }

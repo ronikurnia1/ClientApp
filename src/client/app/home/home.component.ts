@@ -29,9 +29,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   getAppConfiguration() {
     // get app modules from localStorage
     let appConfig: any = JSON.parse(localStorage.getItem("appConfig")) || {};
-    let navigations: any[] = appConfig.navigations || [];
-    this.navigations = navigations.filter(itm => itm.hidden === false)
-      .sort(function (a, b) { return a.order - b.order }).map(this.createNavigation);
+    let navigations: any[] = appConfig.navigations || [];    
+    // this.navigations = navigations.filter(itm => itm.hidden === false)
+    //   .sort(function (a, b) { return a.order - b.order }).map(this.createNavigation);
+    this.navigations = navigations.sort(function (a, b) { return a.order - b.order }).map(this.createNavigation);      
   }
 
   private createNavigation(item: any): Navigation {
