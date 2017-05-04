@@ -11,7 +11,10 @@ export class AuthCheckerService implements CanActivate {
         let appConfig: any = JSON.parse(localStorage.getItem("appConfig")) || {};
         let navigations: Array<any> = appConfig.navigations;
 
-        if (!navigations) {
+        // check token expiration
+        let expiration: string = appConfig.expiration;
+        let currentDate: string = new Date().toISOString();
+        if (!navigations || !expiration || expiration <= currentDate) {
             // not logged in so redirect to login page with the return url
             this.router.navigate(['login', { returnUrl: state.url }]);
             return false;

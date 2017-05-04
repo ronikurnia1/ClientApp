@@ -7,3 +7,4 @@ export * from './header/index';
 export * from './config/env.config';
 export * from './auth-checker/index';
 export * from './authentication/index';
+//export * from './global-vars/index';

@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/index';
 import { NavbarComponent } from './navbar/index';
 import { AuthenticationService } from './authentication/index';
 import { AuthCheckerService } from './auth-checker/index';
-
+//import { GlobalVarsService } from './global-vars/index';
 
 /**
  * Do not specify providers for modules that might be imported by a lazy loaded module.

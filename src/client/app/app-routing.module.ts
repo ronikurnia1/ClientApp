@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthCheckerService } from './shared/auth-checker/index';
+//import { AuthCheckerService } from './shared/auth-checker/index';
 
 @NgModule({
   imports: [

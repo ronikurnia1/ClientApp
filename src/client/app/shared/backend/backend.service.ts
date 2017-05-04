@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-//import { GlobalVarsService } from '../global-vars/index';
+import { GlobalVarsService } from '../global-vars/index';
 
 @Injectable()
-export class AuthenticationService {
-    constructor(private http: Http) { }
+export class BackendService {
+    constructor(private http: Http, private globalVars: GlobalVarsService) { }
 
     login(username: string, password: string): Observable<string> {
         // TODO: use this
@@ -16,6 +16,7 @@ export class AuthenticationService {
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
                 localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
+                this.globalVars.setValue("token", JSON.stringify(response.json().token));
             }).catch(this.handleError);
 
         // for testing only
