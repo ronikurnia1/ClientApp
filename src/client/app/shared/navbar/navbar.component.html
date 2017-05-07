@@ -1,17 +1,16 @@
-<div *ngFor="let navigation of navigations" class="ms-Nav-group"
-  [class.is-expanded]="navigation.isExpanded">
+<div *ngFor="let navigation of navigations" class="ms-Nav-group" [class.is-expanded]="navigation.isExpanded">
   <div *ngIf="navigation.children.length == 0" class="LinkContainer">
-    <a class="ms-Link" [routerLink]="[navigation.path]"
-      [routerLinkActive]="['is-selected']" [routerLinkActiveOptions]="{exact:true}" [style.padding-left.px]="navigation.paddingLeftPx">
+    <a class="ms-Link" [routerLink]="[navigation.path]" [routerLinkActive]="['is-selected']" [routerLinkActiveOptions]="{exact:true}"
+      [style.padding-left.px]="navigation.paddingLeftPx">
       <span class="ms-fontColor-themePrimary"><i class="{{'ms-Icon ' + navigation.icon}}"></i></span> {{navigation.displayName}}
     </a>
   </div>
-  <button *ngIf="navigation.children.length > 0" class="ms-Nav-groupButton" (click)="toggle(navigation)">
+  <button *ngIf="navigation.children.length > 0" class="ms-Nav-groupButton" (click)="toggle(navigation)" [style.padding-left.px]="navigation.paddingLeftPx">
     <i class="{{'ms-Icon ' + navigation.icon}} ms-fontColor-themePrimary"></i>
     <span>{{navigation.displayName}}</span>
     <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronRight"></i>
   </button>
-  <div *ngIf="navigation.isExpanded" class="ms-Nav-groupContent ms-u-slideDownIn20">
+  <div *ngIf="navigation.isExpanded" class="ms-Nav-groupContent ms-u-slideDownIn20">    
     <aside [navigations]="navigation.children"></aside>
   </div>
 </div>

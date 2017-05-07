@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { GlobalVarsService } from '../global-vars/index';
+//import { GlobalVarsService } from '../global-vars/index';
 
 @Injectable()
 export class BackendService {
-    constructor(private http: Http, private globalVars: GlobalVarsService) { }
+    private appConfig: any = {};
 
-    login(username: string, password: string): Observable<string> {
+    constructor(private http: Http) {
+        this.appConfig = JSON.parse(localStorage.getItem("appConfig")) || {};
+    }
+
+    login(username: string, password: string): Observable<any> {
         // TODO: use this
         let headers = new Headers();
         headers.append("Accept", "application/json");
         headers.append("Content-Type", "application/json");
-        return this.http.post('/login',
+        return this.http.post('api/application/login',
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
-                this.globalVars.setValue("token", JSON.stringify(response.json().token));
+                if (response.json().result == "success") {
+                    localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
+                    this.appConfig = response.json().appConfig || {};
+                }
+                return response.json();
             }).catch(this.handleError);
 
         // for testing only
@@ -37,6 +44,17 @@ export class BackendService {
         localStorage.removeItem('appConfig');
     }
 
+    getAccessGroups(): Observable<any> {
+        let headers = new Headers();
+        headers.append("Accept", "application/json");
+        headers.append("Content-Type", "application/json");
+        headers.append("Authorization", "Bearer " + this.appConfig.token);
+        //console.log("Token:", this.appConfig.token);
+        return this.http.get('api/accessgroups', { headers: headers })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
 
     /**
     * Handle HTTP error

@@ -48,7 +48,7 @@ export class ProjectConfig extends SeedConfig {
 
     /* Add proxy middleware */
     this.PROXY_MIDDLEWARE = [
-      require('http-proxy-middleware')('/login', { ws: false, target: 'http://localhost:4244/api/application' })
+      require('http-proxy-middleware')('/api', { ws: false, target: 'http://localhost:4244' })
     ];
 
     /* Add to or override NPM module configurations: */

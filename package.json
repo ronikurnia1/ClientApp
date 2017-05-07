@@ -136,23 +136,23 @@
     "yargs": "^7.1.0"
   },
   "dependencies": {
-    "@angular/animations": "^4.1.0",
-    "@angular/common": "^4.1.0",
-    "@angular/compiler": "^4.1.0",
-    "@angular/core": "^4.1.0",
-    "@angular/forms": "^4.1.0",
-    "@angular/http": "^4.1.0",
-    "@angular/platform-browser": "^4.1.0",
-    "@angular/platform-browser-dynamic": "^4.1.0",
-    "@angular/router": "^4.1.0",
-    "@angular/service-worker": "^1.0.0-beta.10",
+    "@angular/animations": "^4.1.1",
+    "@angular/common": "^4.1.1",
+    "@angular/compiler": "^4.1.1",
+    "@angular/core": "^4.1.1",
+    "@angular/forms": "^4.1.1",
+    "@angular/http": "^4.1.1",
+    "@angular/platform-browser": "^4.1.1",
+    "@angular/platform-browser-dynamic": "^4.1.1",
+    "@angular/router": "^4.1.1",
+    "@angular/service-worker": "^1.0.0-beta.11",
     "core-js": "^2.4.1",
     "intl": "^1.2.5",
     "jquery": "3.2.1",
     "ng2-smart-table": "^1.1.0",
     "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.3.0",
+    "rxjs": "^5.3.1",
     "systemjs": "0.19.47",
-    "zone.js": "^0.8.9"
+    "zone.js": "^0.8.10"
   }
 }

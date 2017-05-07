@@ -22,3 +22,14 @@
 .pull-down {
   vertical-align: top;
 }
+
+.form-width{
+  min-width: 230px;
+}
+
+.ms-MessageBar {
+  padding: 10px 8px 4px 8px;
+}
+.ms-TextField{
+  margin-bottom: 0px;
+}

@@ -2,7 +2,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
 declare const fabric: any;
 /**
- * This class represents the DashbosrdComponent.
+ * This class represents the DashboardComponent.
  */
 @Component({
   moduleId: module.id,

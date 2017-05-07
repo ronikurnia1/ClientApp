@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/index';
 import { NavbarComponent } from './navbar/index';
-import { AuthenticationService } from './authentication/index';
+import { BackendService } from './backend/index';
 import { AuthCheckerService } from './auth-checker/index';
 //import { GlobalVarsService } from './global-vars/index';
 
@@ -23,7 +23,7 @@ export class SharedModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,
-      providers: [AuthenticationService, AuthCheckerService]
+      providers: [BackendService, AuthCheckerService]
     };
   }
 }

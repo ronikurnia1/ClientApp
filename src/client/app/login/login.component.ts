@@ -1,6 +1,6 @@
 import { Component, AfterViewInit, OnInit, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../shared/authentication/index';
+import { BackendService } from '../shared/backend/index';
 
 declare const fabric: any;
 
@@ -14,25 +14,44 @@ declare const fabric: any;
   styleUrls: ['login.component.css']
 })
 export class LoginComponent implements AfterViewInit, OnInit {
-  model: any = {};
+  model: any = {
+    username: "master",
+    password: "!QAsDE#2w"
+  };
   loading: boolean = false;
   returnUrl: string = "";
 
-
-  private errorMessage: string;
+  public errorMessage: string;
+  public errorLogin: boolean;
+  public userNameErrorInfo: string;
+  public passwordErrorInfo: string;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private authentication: AuthenticationService,
-    private elementRef: ElementRef) { }
+    private authentication: BackendService,
+    private elementRef: ElementRef) {
+    this.errorLogin = false;
+  }
+
 
   login(event: any) {
+    this.errorMessage = "";
+    this.userNameErrorInfo = "";
+    this.passwordErrorInfo = "";
+
     this.loading = true;
     this.authentication.login(this.model.username, this.model.password)
       .subscribe(
       data => {
-        this.router.navigate([this.returnUrl]);
+        if (data.result == "success") {
+          this.router.navigate([this.returnUrl]);
+        } else {
+          // Cannot login
+          this.errorLogin = true;
+          this.errorMessage = data.message;
+        }
+        this.loading = false;
       },
       error => {
         console.log("Error:", error);

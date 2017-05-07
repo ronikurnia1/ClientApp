@@ -1,20 +1,25 @@
 <div class="centered">
     <div class="ms-font-xl ms-fontWeight-semibold text-center">
-        <i class="ms-Icon ms-Icon--Hospital pull-down" aria-hidden="true"></i>
-        Hospita<span class="Header-Title ms-font-xl">Lite</span>
+        <i class="ms-Icon ms-Icon--Hospital pull-down" aria-hidden="true"></i> Hospita
+        <span class="Header-Title ms-font-xl">Lite</span>
     </div>
+
     <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
         <div class="ms-TextField" [class.has-error]="f.submitted && !username.valid">
             <label class="ms-Label" for="username"></label>
             <input [(ngModel)]="model.username" #username="ngModel" placeholder="Username" required class="ms-TextField-field" type="text"
                 name="username">
-            <div *ngIf="f.submitted && !username.valid" class="ms-TextField-description">Username is required</div>
+            <div class="ms-TextField-description">
+                <span *ngIf="f.submitted && !username.valid">Username is required.</span>&nbsp;
+            </div>
         </div>
         <div class="ms-TextField" [class.has-error]="f.submitted && !password.valid">
             <label class="ms-Label" for="password"></label>
             <input [(ngModel)]="model.password" placeholder="Password" #password="ngModel" required class="ms-TextField-field" type="password"
                 name="password">
-            <div *ngIf="f.submitted && !password.valid" class="ms-TextField-description">Password is required</div>
+            <div class="ms-TextField-description">
+                <span *ngIf="f.submitted && !password.valid">Password is required.</span>&nbsp;
+            </div>
         </div>
         <div class="SubmitButton">
             <button class="ms-Button ms-Button--primary" [disabled]="loading">
@@ -22,4 +27,15 @@
             </button>
         </div>
     </form>
+    <br>
+    <div class="ms-MessageBar ms-MessageBar--error" *ngIf="errorLogin">
+        <div class="ms-MessageBar-content">
+            <div class="ms-MessageBar-icon">
+                <i class="ms-Icon ms-Icon--ErrorBadge"></i>
+            </div>
+            <div class="ms-MessageBar-text form-width">
+                Incorrect Username or password.
+            </div>
+        </div>
+    </div>
 </div>

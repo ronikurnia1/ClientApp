@@ -8,15 +8,15 @@ export class Navigation {
         public path: string,
         public longPath: string,
         public order: number,
-        public hidden: boolean,
+        public isVisible: boolean,
         public icon: string,
         public paddingLeftPx: number,
         children?: any[]) {
         if (children) {
             let self = this;
-            this.children = children.map(function (child) {
+            this.children = children.filter(itm => itm.isVisible).map(function (child) {
                 return new Navigation(child.name, child.displayName, child.path,
-                    child.longPath, child.order, child.hidden, child.icon, self.paddingLeftPx + 20, child.children);
+                    child.longPath, child.order, child.isVisible, child.icon, self.paddingLeftPx + 15, child.children);
             });
         }
     }

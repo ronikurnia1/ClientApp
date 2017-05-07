@@ -125,12 +125,12 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   transition: transform 0.1s linear,-webkit-transform 0.1s linear;
 }
 
-.ms-Nav-group.is-expanded .ms-Nav-groupChevron {
+.ms-Nav-group.is-expanded > button > i.ms-Nav-groupChevron {
   -ms-transform: rotate(90deg);
       transform: rotate(90deg);
 }
 
-.ms-Nav-group.is-expanded .ms-Nav-groupButton {
+.ms-Nav-group.is-expanded > button.ms-Nav-groupButton {
   background-color: rgba(33, 33, 33, 0.1);  
 }
 

@@ -19,7 +19,7 @@ export class NavbarComponent {
 
   public toggle(navigation: Navigation): void {
     //console.log("Navigation:", navigation.displayName);
-    this.navigations.filter(nav => nav.name !== navigation.name).forEach(nav => nav.isExpanded = false);
+    //this.navigations.filter(nav => nav.name !== navigation.name).forEach(nav => nav.isExpanded = false);
     navigation.isExpanded = !navigation.isExpanded;
   }
 
