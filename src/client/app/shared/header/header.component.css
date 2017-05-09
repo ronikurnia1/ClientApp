@@ -2,21 +2,16 @@
 #Header {
   position: absolute;
   top: 0;
-  height: 47px;
+  height: 50px;
+  padding-left: 18px;
   left: 0;
   right: 0;
-  padding: 0 20px;
   overflow: hidden;
   white-space: no-wrap;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  box-shadow: 0 2px 4px rgba(33,33,33,.2);
-    -webkit-box-shadow: 0 2px 4px rgba(33,33,33,.2);
-    -moz-box-shadow: 0 2px 4px rgba(33,33,33,.2);
-    -o-box-shadow: 0 2px 4px rgba(33,33,33,.2);
-    -ms-box-shadow: 0 2px 4px rgba(33,33,33,.2);
 }
 
 #Header .Header-Title {
@@ -40,7 +35,6 @@
   background: 0 0;
   color: #ffffff;
   border: none;
-  padding: 0;
   padding: 0 10px;
   min-width: 50px;
   height: 50px;
@@ -75,3 +69,4 @@ html[dir=rtl] #Header .Header-buttons {
 .Header-Title .ms-Icon {
   vertical-align: text-top;
 }
+

@@ -44,7 +44,7 @@ export class LoginComponent implements AfterViewInit, OnInit {
     this.authentication.login(this.model.username, this.model.password)
       .subscribe(
       data => {
-        if (data.result == "success") {
+        if (data.status == "success") {
           this.router.navigate([this.returnUrl]);
         } else {
           // Cannot login

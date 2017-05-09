@@ -19,9 +19,9 @@ export class BackendService {
         return this.http.post('api/application/login',
             JSON.stringify({ username: username, password: password }), { headers: headers })
             .map((response: Response) => {
-                if (response.json().result == "success") {
-                    localStorage.setItem("appConfig", JSON.stringify(response.json().appConfig));
-                    this.appConfig = response.json().appConfig || {};
+                if (response.json().status == "success") {
+                    localStorage.setItem("appConfig", JSON.stringify(response.json().payload));
+                    this.appConfig = response.json().payload || {};
                 }
                 return response.json();
             }).catch(this.handleError);
@@ -44,13 +44,18 @@ export class BackendService {
         localStorage.removeItem('appConfig');
     }
 
+    // get all access group
     getAccessGroups(): Observable<any> {
-        let headers = new Headers();
-        headers.append("Accept", "application/json");
-        headers.append("Content-Type", "application/json");
-        headers.append("Authorization", "Bearer " + this.appConfig.token);
         //console.log("Token:", this.appConfig.token);
-        return this.http.get('api/accessgroups', { headers: headers })
+        return this.http.get('api/accessgroups', { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    getAccessGroupById(accessGroupId: string): Observable<any> {
+        //console.log("Token:", this.appConfig.token);
+        return this.http.get('api/accessgroups/' + accessGroupId, { headers: this.constructHeader() })
             .map((response: Response) => {
                 return response.json();
             }).catch(this.handleError);
@@ -68,4 +73,12 @@ export class BackendService {
         return Observable.throw(errMsg);
     }
 
+
+    private constructHeader(): Headers {
+        let headers = new Headers();
+        headers.append("Accept", "application/json");
+        headers.append("Content-Type", "application/json");
+        headers.append("Authorization", "Bearer " + this.appConfig.token);
+        return headers;
+    }
 }

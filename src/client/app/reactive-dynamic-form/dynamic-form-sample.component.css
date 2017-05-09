@@ -1,4 +1,14 @@
 :host {
   display: block;
+}
+
+
+.scrollable {
   padding: 0 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 100%;
+  padding-bottom: 40px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }

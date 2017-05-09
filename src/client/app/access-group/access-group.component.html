@@ -1,10 +1,46 @@
-<h2>Access Group</h2>
-<ul class="ms-List">
-    <li *ngFor="let accessRole of accessRoles" [class.is-selected]="accessRole.isSelected" class="ms-ListItem is-selectable">
-        <a [routerLink]="[accessRole.id]">
+<div class="ms-CommandBar">
+    <div class="ms-CommandBar-mainArea">
+        <div class="ms-CommandButton">
+            <button class="ms-CommandButton-button" [routerLink]="['new']">
+          <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
+            <i class="ms-Icon ms-Icon--CirclePlus"></i>
+          </span>
+          <span class="ms-CommandButton-label">New</span>
+        </button>
+        </div>
+
+        <div class="ms-CommandButton" [class.is-hide]="isNoSelection">
+            <button class="ms-CommandButton-button">
+          <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
+            <i class="ms-Icon ms-Icon--Delete"></i>
+          </span>
+          <span class="ms-CommandButton-label">Delete</span>
+        </button>
+        </div>
+
+        <div class="ms-SearchBox">
+            <input class="ms-SearchBox-field" type="text" value="">
+            <label class="ms-SearchBox-label">
+            <i class="ms-SearchBox-icon ms-Icon ms-Icon--Search"></i>
+            <span class="ms-SearchBox-text">Search</span>
+          </label>
+            <div class="ms-CommandButton ms-SearchBox-clear ms-CommandButton--noLabel  ">
+                <button class="ms-CommandButton-button">
+            <span class="ms-CommandButton-icon "><i class="ms-Icon ms-Icon--Clear"></i></span><span class="ms-CommandButton-label"></span>  </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="access-group-list">
+    <h2>Access Group</h2>
+    <ul class="ms-List">
+        <li *ngFor="let accessRole of accessRoles" [class.is-selected]="accessRole.isSelected" class="ms-ListItem is-selectable">
+            <a [routerLink]="[accessRole.id]">
         <span class="ms-ListItem-primaryText">{{accessRole.name}}</span>
         <span class="ms-ListItem-secondaryText">{{accessRole.description}}</span>
         <div (click)="toggleSelection(accessRole, $event)" class="ms-ListItem-selectionTarget"></div>
     </a>
-    </li>
-</ul>
+        </li>
+    </ul>
+</div>

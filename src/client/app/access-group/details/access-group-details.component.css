@@ -1,4 +1,25 @@
 :host {
   display: block;
+}
+
+.access-group-details {
   padding: 0 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 100%;
+  padding-bottom: 40px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+ul {
+  list-style: none;
+}
+
+li > .ms-TextField {
+  margin-bottom: 0;
+}
+
+.three-view {
+  padding-left: 1px;    
 }

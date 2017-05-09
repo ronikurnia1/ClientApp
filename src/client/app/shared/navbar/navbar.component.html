@@ -10,7 +10,7 @@
     <span>{{navigation.displayName}}</span>
     <i class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronRight"></i>
   </button>
-  <div *ngIf="navigation.isExpanded" class="ms-Nav-groupContent ms-u-slideDownIn20">    
+  <div *ngIf="navigation.isExpanded" class="ms-Nav-groupContent ms-u-slideDownIn20">
     <aside [navigations]="navigation.children"></aside>
   </div>
 </div>
