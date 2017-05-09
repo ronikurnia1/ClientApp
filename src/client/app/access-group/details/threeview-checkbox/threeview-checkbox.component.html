@@ -1,10 +1,9 @@
 <div class="ms-CheckBox ms-TextField" #CheckBox>
   <input type="checkbox" class="ms-CheckBox-input">
-  <div role="checkbox" [class.is-checked]="isAccessible" class="ms-CheckBox-field"></div>
-  <label role="checkbox"><span class="ms-Label">{{accessRole.displayName}}</span></label>
-  <i *ngIf="accessRole.children.length > 0" (click)="toggle()" class="ms-Nav-groupChevron ms-Icon ms-Icon--ChevronRight"></i>
+  <label role="checkbox" [class.is-checked]="isAccessible" class="ms-CheckBox-field">
+    <span class="ms-Label" (click)="toggle()">{{accessRole.displayName}}</span>
+  </label>
 </div>
-
 <ul *ngIf="accessRole.children.length > 0" [class.is-collapsed]="accessRole.isCollapsed" class="clear-list">
   <li *ngFor="let role of accessRole.children">
     <three-view [accessRole]="role"></three-view>

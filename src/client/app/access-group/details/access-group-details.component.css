@@ -8,7 +8,7 @@
   overflow-x: hidden;
   height: 100%;
   padding-bottom: 40px;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "angular-seed",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Modular starter project for Angular 2 (and beyond) with statically typed build and AoT compilation",
   "repository": {
     "url": "https://github.com/mgechev/angular-seed"
@@ -46,9 +46,9 @@
   "author": "Minko Gechev <mgechev>",
   "license": "MIT",
   "devDependencies": {
-    "@angular/cli": "1.0.1",
-    "@angular/compiler-cli": "^4.1.0",
-    "@angular/platform-server": "^4.1.0",
+    "@angular/cli": "1.0.2",
+    "@angular/compiler-cli": "^4.1.1",
+    "@angular/platform-server": "^4.1.1",
     "@types/async": "^2.0.40",
     "@types/browser-sync": "^0.0.34",
     "@types/express": "^4.0.35",

@@ -81,7 +81,7 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   background: #ffffff;
   box-sizing: border-box;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
   border-right: solid 1px #e0e0e0;
