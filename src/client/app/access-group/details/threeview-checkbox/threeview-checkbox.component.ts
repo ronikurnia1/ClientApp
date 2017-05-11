@@ -66,7 +66,7 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
       let parentChildren: any[] = this.parentAccessRole.children || [];
       this.parentAccessRole.isAccessible = parentChildren.every(itm => itm.isAccessible);
       if (!this.parentAccessRole.isAccessible) {
-        if (parentChildren.some(itm => itm.isAccessible)) {
+        if (parentChildren.some(itm => itm.isAccessible) || parentChildren.every(itm => itm.isAccessible == null)) {
           this.parentAccessRole.isAccessible = null;
         }
       }
