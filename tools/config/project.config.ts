@@ -33,8 +33,8 @@ export class ProjectConfig extends SeedConfig {
       // {src: `${this.CSS_SRC}/path-to-lib/test-lib.css`, inject: true, vendor: false},
       { src: `${this.APP_SRC}/libs/fabric-ui/fabric.js`, inject: true, vendor: false },
       { src: `${this.APP_SRC}/libs/fabric-ui/PickaDate.js`, inject: true, vendor: false },
-      { src: `${this.CSS_SRC}/fabric-ui/fabric.min.css`, inject: true, vendor: false },
-      { src: `${this.CSS_SRC}/fabric-ui/fabric.components.min.css`, inject: true, vendor: false }
+      { src: `${this.CSS_SRC}/fabric-ui/fabric.css`, inject: true, vendor: false },
+      { src: `${this.CSS_SRC}/fabric-ui/fabric.components.css`, inject: true, vendor: false }
     ];
 
     // Add packages (e.g. ng2-translate)

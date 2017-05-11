@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { BackendService } from '../../shared/backend/index';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,22 +13,23 @@ declare const fabric: any;
 })
 export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    public accessGroup: { id: string, name: string, description: string, access: any[] };    
+    public accessGroup: { id: string, name: string, description: string, access: any[] };
     private id: string;
     private sub: any;
 
-    constructor(private backendService: BackendService,
+    public accessRole: any;
+
+    constructor(
+        private backendService: BackendService,
         private elementRef: ElementRef,
-        private route: ActivatedRoute) {
+        private route: ActivatedRoute,
+        private router: Router) {
         //this.dateValue 
         this.accessGroup = { id: "", name: "", description: "", access: [] };
     }
 
     setCheckbox() {
-        let rawCheckBoxs = this.elementRef.nativeElement.querySelectorAll(".ms-CheckBox");
-        for (let i = 0; i < rawCheckBoxs.length; i++) {
-            new fabric['CheckBox'](rawCheckBoxs[i]);
-        }
+
     }
 
     ngOnInit() {
@@ -39,6 +41,7 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
                 }
                 else {
                     //notify user
+                    this.router.navigate(["/home/page-not-found"]);
                 }
             }, err => {
                 // notify user
@@ -52,6 +55,9 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
         for (let i = 0; i < CommandBarElements.length; i++) {
             new fabric['CommandBar'](CommandBarElements[i]);
         }
+
+        // this.checkBox = new fabric['CheckBox'](this.checkBoxElement.nativeElement);
+        // this.realCheckBoxElement.nativeElement.indeterminate = true;
     }
 
     ngOnDestroy() {

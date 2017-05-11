@@ -1050,11 +1050,19 @@ var fabric;
         CheckBox.prototype.check = function () {
             this._choiceField.setAttribute("aria-checked", "true");
             this._choiceField.classList.add("is-checked");
+            this._choiceField.classList.remove("is-indeterminate");
         };
         CheckBox.prototype.unCheck = function () {
             this._choiceField.setAttribute("aria-checked", "false");
             this._choiceField.classList.remove("is-checked");
+            this._choiceField.classList.remove("is-indeterminate");
         };
+        // three-state: indeterminate
+        CheckBox.prototype.indeterminate = function () {
+            this._choiceField.setAttribute("aria-checked", "null");
+            this._choiceField.classList.add("is-indeterminate");
+            this._choiceField.classList.remove("is-checked");
+        }
         CheckBox.prototype.removeListeners = function () {
             this._choiceField.removeEventListener("focus", this._FocusHandler.bind(this));
             this._choiceField.removeEventListener("blur", this._BlurHandler.bind(this));
@@ -1919,7 +1927,7 @@ var fabric;
             var submenus = container.querySelectorAll(".ms-ContextualMenu-item.ms-ContextualMenu-item--hasMenu");
             var i = submenus.length;
             if (submenus.length) {
-                var _loop_1 = function() {
+                var _loop_1 = function () {
                     var button = submenus[i].querySelector(".ms-ContextualMenu-link");
                     var menu = submenus[i].querySelector(".ms-ContextualMenu");
                     if (menu) {
