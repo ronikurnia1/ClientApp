@@ -99,7 +99,7 @@ export class DynamicFormSampleComponent implements AfterViewInit {
     //this.form.setValue('name', 'Todd Motto');
   }
 
-  submit(value: { [name: string]: any }) {
+  submit(value: any) {
     console.log(JSON.stringify(value));
   }
 }

@@ -1,7 +1,7 @@
 <div class="ms-CommandBar">
     <div class="ms-CommandBar-mainArea">
         <div class="ms-CommandButton">
-            <button class="ms-CommandButton-button" (click)="setCheckbox()">
+            <button disabled class="ms-CommandButton-button" (click)="submitForm()">
                 <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
                     <i class="ms-Icon ms-Icon--Save"></i>
                 </span>
@@ -20,19 +20,10 @@
 </div>
 <div class="access-group-details">
     <h2>Access Group Details</h2>
-    <form>
-        <div class="ms-TextField">
-            <label class="ms-Label">Name</label>
-            <input [value]="accessGroup.name" class="ms-TextField-field">
-        </div>
-        <div class="ms-TextField">
-            <label class="ms-Label">Description</label>
-            <input [value]="accessGroup.description" class="ms-TextField-field">
-        </div>
-        <ul class="three-view">
-            <li *ngFor="let role of accessGroup.access">
-                <three-view [accessRole]="role"></three-view>
-            </li>
-        </ul>
-    </form>
+    <dynamic-form [fields]="fields" #form="dynamicForm"></dynamic-form>
+    <ul class="three-view">
+        <li *ngFor="let role of accessGroup.access">
+            <three-view [accessRole]="role"></three-view>
+        </li>
+    </ul>
 </div>

@@ -11,6 +11,7 @@ import { FormDatePickerComponent } from './components/form-date-picker.component
 import { FormCheckBoxComponent } from './components/form-check-box.component';
 import { FormRadioButtonComponent } from './components/form-radio-button.component';
 import { FormToggleComponent } from './components/form-toggle.component';
+import { FormHiddenInputComponent } from './components/form-hidden-input.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { FormToggleComponent } from './components/form-toggle.component';
     FormDatePickerComponent,
     FormCheckBoxComponent,
     FormRadioButtonComponent,
-    FormToggleComponent
+    FormToggleComponent,
+    FormHiddenInputComponent
   ],
   exports: [
     DynamicFormComponent
@@ -38,7 +40,8 @@ import { FormToggleComponent } from './components/form-toggle.component';
     FormDatePickerComponent,
     FormCheckBoxComponent,
     FormRadioButtonComponent,
-    FormToggleComponent
+    FormToggleComponent,
+    FormHiddenInputComponent
   ]
 })
 export class DynamicFormModule { }

@@ -21,7 +21,20 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
 
   private checkBox: any;
 
-  constructor() { }
+  constructor() {
+  }
+
+  ngOnInit() {
+    let self = this;
+    this.accessRole.updateChildrenByRelation = function (newValue: boolean) {
+      self.accessRole.isAccessible = newValue;
+      self.updateChildren(newValue);
+    }
+    this.accessRole.updateParentByRelation = function () {
+      self.updateParent();
+    }
+  }
+
 
   public toggleExpansion(): void {
     event.stopPropagation();
@@ -34,13 +47,21 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
     event.preventDefault();
     this.accessRole.isAccessible = !oldValue;
     console.log(this.accessRole.name + " selection:", this.accessRole.isAccessible);
-    // sync children if any
+    this.updateChildren(this.accessRole.isAccessible);
+    this.updateParent();
+  }
+
+  // sync children if any
+  private updateChildren(newValue: boolean): void {
     let children: any[] = this.accessRole.children || [];
     children.forEach(itm => {
-      itm.isAccessible = !oldValue;
+      itm.updateChildrenByRelation(newValue);
     });
 
-    // sync parent if any
+  }
+
+  // sync parent if any
+  private updateParent() {
     if (this.parentAccessRole) {
       let parentChildren: any[] = this.parentAccessRole.children || [];
       this.parentAccessRole.isAccessible = parentChildren.every(itm => itm.isAccessible);
@@ -49,10 +70,8 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
           this.parentAccessRole.isAccessible = null;
         }
       }
+      this.parentAccessRole.updateParentByRelation();
     }
-  }
-
-  ngOnInit() {
   }
 
   ngAfterViewInit() {
