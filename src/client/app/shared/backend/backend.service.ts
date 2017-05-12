@@ -61,6 +61,27 @@ export class BackendService {
             }).catch(this.handleError);
     }
 
+    registerAccessGroup(accessGroup: any): Observable<any> {
+        return this.http.post('api/accessgroups/', accessGroup, { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    updateAccessGroup(accessGroup: any): Observable<any> {
+        return this.http.put('api/accessgroups/', accessGroup, { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    unregisterAccessGroup(accessGroupIds: string[]): Observable<any> {
+        return this.http.delete('api/accessgroups/', { headers: this.constructHeader(), body: accessGroupIds })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
     /**
     * Handle HTTP error
     */

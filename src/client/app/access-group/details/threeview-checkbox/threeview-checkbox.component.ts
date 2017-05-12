@@ -46,7 +46,7 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
     event.stopPropagation();
     event.preventDefault();
     this.accessRole.isAccessible = !oldValue;
-    console.log(this.accessRole.name + " selection:", this.accessRole.isAccessible);
+    //console.log(this.accessRole.name + " selection:", this.accessRole.isAccessible);
     this.updateChildren(this.accessRole.isAccessible);
     this.updateParent();
   }
@@ -66,7 +66,7 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
       let parentChildren: any[] = this.parentAccessRole.children || [];
       this.parentAccessRole.isAccessible = parentChildren.every(itm => itm.isAccessible);
       if (!this.parentAccessRole.isAccessible) {
-        if (parentChildren.some(itm => itm.isAccessible) || parentChildren.every(itm => itm.isAccessible == null)) {
+        if (parentChildren.some(itm => itm.isAccessible) || parentChildren.some(itm => itm.isAccessible == null)) {
           this.parentAccessRole.isAccessible = null;
         }
       }

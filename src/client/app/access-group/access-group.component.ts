@@ -11,8 +11,10 @@ declare const fabric: any;
 })
 export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
+
     public accessRoles: any[];
     private searchBox: any[] = [];
+    private dialogComponent: any;
 
 
     constructor(private backendService: BackendService, private elementRef: ElementRef) {
@@ -38,7 +40,12 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
     }
 
+
     ngOnInit() {
+        this.loadData();
+    }
+
+    loadData() {
         this.backendService.getAccessGroups().subscribe(
             data => {
                 //console.log("AccessRole:", data);
@@ -57,6 +64,7 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
             });
     }
 
+
     ngAfterViewInit() {
 
         let SearchBoxElements = this.elementRef.nativeElement.querySelectorAll(".ms-SearchBox");
@@ -64,21 +72,10 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
             this.searchBox.push(new fabric['SearchBox'](SearchBoxElements[i]));
         }
 
-        // let ListElements = this.elementRef.nativeElement.querySelectorAll(".ms-List");
-        // for (let i = 0; i < ListElements.length; i++) {
-        //   new fabric['List'](ListElements[i]);
-        // }
-
         let ListItemElements = this.elementRef.nativeElement.querySelectorAll(".ms-ListItem");
         for (let i = 0; i < ListItemElements.length; i++) {
             new fabric['ListItem'](ListItemElements[i]);
         }
-
-        // // Checkbox
-        // let CheckBoxElements = this.elementRef.nativeElement.querySelectorAll(".ms-CheckBox");
-        // for (let i = 0; i < CheckBoxElements.length; i++) {
-        //   new fabric['CheckBox'](CheckBoxElements[i]);
-        // }
 
         let CommandBarElements = this.elementRef.nativeElement.querySelectorAll(".ms-CommandBar");
         for (let i = 0; i < CommandBarElements.length; i++) {
@@ -86,17 +83,40 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
         }
 
 
-        // let datePicker = this.elementRef.nativeElement.querySelectorAll(".ms-DatePicker");
-        // for (var i = 0; i < datePicker.length; i++) {
-        //   this.picker = new fabric['DatePicker'](datePicker[i]);
-        // }
-        // //this.picker.picker.set('select', [2016, 1, 20]);
+        // dialog
+        let dialog = this.elementRef.nativeElement.querySelector(".ms-Dialog");
+        let actionButtonElements = this.elementRef.nativeElement.querySelectorAll(".ms-Dialog-action");
+        let actionButtonComponents = [];
+        // Wire up the dialog
+        this.dialogComponent = new fabric['Dialog'](dialog);
+        // Wire up the buttons
+        for (var i = 0; i < actionButtonElements.length; i++) {
+            actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
+                (event: any) => {
+                    if (event.srcElement.innerText.trim() === "Save") {
+                        let accessGroupIds: string[] = this.accessRoles.filter(itm => itm.isSelected).map(itm => itm.id);
+                        this.backendService.unregisterAccessGroup(accessGroupIds).subscribe(data => {
+                            if (data.status === "success") {
+                                // refresh list
+                                this.loadData();
+                            } else {
 
-        // let buttons = this.elementRef.nativeElement.querySelectorAll(".ms-Button");
-        // for (var i = 0; i < buttons.length; i++) {
-        //   new fabric['Button'](buttons[i]);
-        // }
+                            }
+                        }, error => {
+                            // nottify user
+                        });
+                    }
+                });
+        }
     }
+
+    // actionHandler(event: any) {
+    // }
+    openDeleteDialog() {
+        // Open the dialog
+        this.dialogComponent.open();
+    }
+
 
     ngOnDestroy() {
         this.searchBox.forEach(sb => sb.setCollapsedListeners());

@@ -7,7 +7,17 @@ a:link{
 }
 
 .access-group-list {
+  display: block;
   padding: 0 20px;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ms-List {
+  margin-bottom: 60px;
 }
 
 .is-hide {

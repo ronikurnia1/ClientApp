@@ -99,8 +99,48 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
 
 
     submitForm() {
-        this.dynamicInput.form.value.access = this.accessGroup.access;
-        console.log(this.dynamicInput.form.value);
+        if (this.dynamicInput.valid) {
+            this.dynamicInput.form.value.roles = this.flattenAccessRoles(this.accessGroup.access);
+            //console.log("Value:", this.dynamicInput.form.value);
+            if (this.id === "new") {
+                this.backendService.registerAccessGroup(this.dynamicInput.form.value).subscribe(data => {
+                    if (data.status == "success") {
+                        this.router.navigate(['/home/settings/access-groups']);
+                    } else {
+                        console.log("Error:", data);
+                    }
+                }, error => {
+                    console.log("Error:", error);
+                });
+            } else {
+                this.backendService.updateAccessGroup(this.dynamicInput.form.value).subscribe(data => {
+                    if (data.status == "success") {
+                        this.router.navigate(['/home/settings/access-groups']);
+                    } else {
+                        console.log("Error:", data);
+                    }
+                }, error => {
+                    console.log("Error:", error);
+                });
+            }
+
+        } else {
+            console.log("Data not valid.");
+        }
+    }
+
+    flattenAccessRoles(roles: any[]): any[] {
+        let elements: any[] = [];
+        roles.forEach(element => {
+            elements.push({
+                id: element.id,
+                accessGroupId: element.accessGroupId,
+                roleId: element.roleId,
+                isAccessible: element.isAccessible
+            });
+            elements = elements.concat(this.flattenAccessRoles(element.children));
+        });
+        return elements;
     }
 
     ngOnDestroy() {
