@@ -21,6 +21,9 @@ import { AuthCheckerService } from '../shared/auth-checker/index';
           { path: 'settings/access-groups', loadChildren: './app/access-group/access-group.module#AccessGroupModule', canActivate: [AuthCheckerService] },
           { path: 'settings/access-groups/:id', loadChildren: './app/access-group/details/access-group-details.module#AccessGroupDetailsModule', canActivate: [AuthCheckerService] },
 
+          { path: 'settings/users', loadChildren: './app/users/users.module#UsersModule', canActivate: [AuthCheckerService] },
+          { path: 'settings/users/:id', loadChildren: './app/users/details/user-details.module#UserDetailsModule', canActivate: [AuthCheckerService] },
+
           { path: 'unauthorized', loadChildren: './app/unauthorized/unauthorized.module#UnauthorizedModule' },
           { path: 'page-not-found', loadChildren: './app/not-found/not-found.module#NotFoundModule' },
           { path: '**', redirectTo: 'page-not-found' }

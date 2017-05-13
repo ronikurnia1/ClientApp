@@ -9,3 +9,25 @@ ul {
 .ms-TextField {
   margin-bottom: 0;
 }
+
+.ms-CommandButton-dropdownIcon > i.ms-Icon {
+  margin-top: -12px;
+  transform-origin: 4px 21px;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear,-webkit-transform 0.1s linear;
+}
+
+.ms-CommandButton-dropdownIcon > i.ms-Icon.is-expanded {
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.ms-u-slideDownIn20 {
+  animation-name: fade,slideDownIn20;
+  -webkit-animation-duration: 367ms;
+     -moz-animation-duration: 367ms;
+      -ms-animation-duration: 367ms;
+       -o-animation-duration: 367ms;
+  animation-timing-function: cubic-bezier(0.1, 0.9, 0.2, 1);
+  animation-fill-mode: both;
+}

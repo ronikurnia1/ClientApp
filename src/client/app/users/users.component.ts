@@ -6,13 +6,13 @@ declare const fabric: any;
 @Component({
     moduleId: module.id,
     selector: 'content',
-    templateUrl: 'access-group.component.html',
-    styleUrls: ['access-group.component.css']
+    templateUrl: 'users.component.html',
+    styleUrls: ['users.component.css']
 })
-export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
+export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
-    public accessGroups: any[];
+    public users: any[];
     private searchBox: any[] = [];
     private dialogComponent: any;
 
@@ -22,29 +22,28 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
 
-    toggleSelection(accessGroup: any, event: Event) {
+    toggleSelection(user: any, event: Event) {
         event.preventDefault();
         event.stopPropagation();
-        accessGroup.isSelected = !accessGroup.isSelected;
+        user.isSelected = !user.isSelected;
     }
 
     get isNoSelection(): boolean {
-        if (this.accessGroups)
-            return !this.accessGroups.some(a => a.isSelected);
+        if (this.users)
+            return !this.users.some(a => a.isSelected);
         return true;
     }
-
 
     ngOnInit() {
         this.loadData();
     }
 
     loadData() {
-        this.backendService.getAccessGroups().subscribe(
+        this.backendService.getUsers().subscribe(
             data => {
                 //console.log("AccessRole:", data);
                 if (data.status == "success") {
-                    this.accessGroups = data.payload;
+                    this.users = data.payload;
                 }
                 else {
                     // display message
@@ -88,8 +87,8 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
             actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
                 (event: any) => {
                     if (event.srcElement.innerText.trim() === "Save") {
-                        let accessGroupIds: string[] = this.accessGroups.filter(itm => itm.isSelected).map(itm => itm.id);
-                        this.backendService.unregisterAccessGroup(accessGroupIds).subscribe(data => {
+                        let userIds: string[] = this.users.filter(itm => itm.isSelected).map(itm => itm.id);
+                        this.backendService.unregisterAccessGroup(userIds).subscribe(data => {
                             if (data.status === "success") {
                                 // refresh list
                                 this.loadData();

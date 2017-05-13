@@ -25,6 +25,7 @@ export class ThreeviewCheckboxComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.accessRole.isCollapsed = true;
     let self = this;
     this.accessRole.updateChildrenByRelation = function (newValue: boolean) {
       self.accessRole.isAccessible = newValue;

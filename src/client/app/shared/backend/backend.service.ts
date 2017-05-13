@@ -82,6 +82,45 @@ export class BackendService {
             }).catch(this.handleError);
     }
 
+
+    // get all users
+    getUsers(): Observable<any> {
+        //console.log("Token:", this.appConfig.token);
+        return this.http.get('api/users', { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    getUserById(userId: string): Observable<any> {
+        //console.log("Token:", this.appConfig.token);
+        return this.http.get('api/users/' + userId, { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    registerUser(user: any): Observable<any> {
+        return this.http.post('api/users/', user, { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    updateUser(user: any): Observable<any> {
+        return this.http.put('api/users/', user, { headers: this.constructHeader() })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
+    unregisterUser(userIds: string[]): Observable<any> {
+        return this.http.delete('api/users/', { headers: this.constructHeader(), body: userIds })
+            .map((response: Response) => {
+                return response.json();
+            }).catch(this.handleError);
+    }
+
     /**
     * Handle HTTP error
     */

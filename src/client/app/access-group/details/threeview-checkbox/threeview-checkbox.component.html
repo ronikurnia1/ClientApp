@@ -2,10 +2,14 @@
   <input type="checkbox" class="ms-CheckBox-input" (click)="toggleSelection(accessRole.isAccessible)">
   <label role="checkbox" [class.is-checked]="accessRole.isAccessible" [class.is-indeterminate]="accessRole.isAccessible == null"
     [attr.aria-checked]="accessRole.isAccessible" class="ms-CheckBox-field">
-    <span class="ms-Label" (click)="toggleExpansion()">{{accessRole.displayName}}</span>
+    <span class="ms-Label" (click)="toggleExpansion()">{{accessRole.displayName}}
+      <span *ngIf="accessRole.children.length > 0" class="ms-CommandButton-dropdownIcon">
+        <i class="ms-Icon ms-Icon--ChevronRight" [class.is-expanded]="!accessRole.isCollapsed"></i>
+      </span>
+    </span>
   </label>
 </div>
-<ul *ngIf="accessRole.children.length > 0" [class.is-collapsed]="accessRole.isCollapsed" class="clear-list">
+<ul *ngIf="accessRole.children.length > 0" [class.is-collapsed]="accessRole.isCollapsed" class="ms-u-slideDownIn20 clear-list">
   <li *ngFor="let role of accessRole.children">
     <three-view [accessRole]="role" [parentAccessRole]="accessRole"></three-view>
   </li>
