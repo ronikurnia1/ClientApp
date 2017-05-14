@@ -86,9 +86,9 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
         for (var i = 0; i < actionButtonElements.length; i++) {
             actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
                 (event: any) => {
-                    if (event.srcElement.innerText.trim() === "Save") {
+                    if (event.srcElement.innerText.trim() === "Yes") {
                         let userIds: string[] = this.users.filter(itm => itm.isSelected).map(itm => itm.id);
-                        this.backendService.unregisterAccessGroup(userIds).subscribe(data => {
+                        this.backendService.unregisterUser(userIds).subscribe(data => {
                             if (data.status === "success") {
                                 // refresh list
                                 this.loadData();

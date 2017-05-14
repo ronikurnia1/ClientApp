@@ -22,7 +22,7 @@
     </div>
 </div>
 <div class="access-group-list">
-    <h2>User</h2>
+    <h2>Users</h2>
     <ul class="ms-List">
         <li *ngFor="let user of users" [class.is-selected]="user.isSelected" class="ms-ListItem is-selectable">
             <a [routerLink]="[user.id]">
@@ -38,15 +38,15 @@
     <button class="ms-Dialog-button ms-Dialog-buttonClose">
       <i class="ms-Icon ms-Icon--Cancel"></i>
     </button>
-    <div class="ms-Dialog-title">Confirmation</div>
+    <div class="ms-Dialog-title">User Confirmation</div>
     <div class="ms-Dialog-content">
         <div class="ms-TextField">
-            <label class="ms-Label">Delete selected user(s)?</label>
+            <label class="ms-Label">Are you sure want to delete selected users?</label>
         </div>
     </div>
     <div class="ms-Dialog-actions">
         <button class="ms-Button ms-Dialog-action ms-Button--primary">
-        <span class="ms-Button-label">Save</span> 
+        <span class="ms-Button-label">Yes</span> 
       </button>
         <button class="ms-Button ms-Dialog-action">
         <span class="ms-Button-label">Cancel</span> 

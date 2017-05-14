@@ -28,11 +28,11 @@ content {
   top: 50px;
   left:0px;
   right:0px;
-  bottom: 0;
+  bottom: 40px;
 }
 
 html[dir=ltr] content {
-  left: 240px;
+  left: 230px;
   right: 0;
 }
 
@@ -40,9 +40,9 @@ html[dir=ltr] .ms-Nav-groupButton {
   text-align: left;
 }
 
-html[dir=ltr] .ms-Nav-groupChevron.ms-Icon {
+/*html[dir=ltr] .ms-Nav-groupChevron.ms-Icon {
   left: 218px;
-}
+}*/
 
 html[dir=ltr] .sidebarContainer {
   left: 0;
@@ -74,7 +74,7 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
   padding-top: 10px;
   padding-bottom: 20px;
   position: absolute;
-  width: 240px;
+  width: 230px;
   top: 50px;
   left: 0;
   bottom: 0;
@@ -110,7 +110,7 @@ html[dir=rtl] .LinkContainer a.is-selected:after {
 .ms-Nav-groupChevron.ms-Icon {
   position: absolute;
   height: 40px;
-  left: 150px;
+  left: 210px;
   line-height: 40px;
   font-size: 10px;
   font-weight: bold;

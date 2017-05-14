@@ -21,4 +21,11 @@
 <div class="access-group-details">
     <h2>User Details</h2>
     <dynamic-form [fields]="fields" #form="dynamicForm"></dynamic-form>
+    <h3>Access Groups</h3>
+    <div class="ms-CheckBox ms-TextField" *ngFor="let group of user.accessGroups" (click)="toggleCheckBox(group)">
+        <input type="checkbox" class="ms-CheckBox-input">
+        <label role="checkbox" [class.is-checked]="group.isAccessible" [attr.aria-checked]="group.isAccessible" class="ms-CheckBox-field">
+            <span class="ms-Label">{{group.name}}</span>
+        </label>
+    </div>
 </div>

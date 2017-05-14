@@ -4,6 +4,7 @@ import { BackendService } from '../../shared/backend/index';
 import { ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Field } from '../../shared/dynamic-form/models/field.interface'; import { DynamicFormComponent } from '../../shared/dynamic-form/dynamic-form.component';
+
 declare const fabric: any;
 
 @Component({
@@ -16,12 +17,12 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild(DynamicFormComponent) dynamicInput: DynamicFormComponent;
 
-    public user: any;
     private id: string;
     private sub: any;
 
-    public accessGroup: any;
-    fields: Field[] = [
+    public isNew: boolean = false;
+    public user: any = {};
+    public fields: Field[] = [
         {
             key: 'id',
             type: 'hiddenInput',
@@ -57,7 +58,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
         },
         {
             key: 'password',
-            type: 'input',
+            type: 'password',
             label: 'Password',
             name: 'password',
             order: 4,
@@ -65,7 +66,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
         },
         {
             key: 'confirmPassword',
-            type: 'input',
+            type: 'password',
             label: 'Confirm Password',
             name: 'confirmPassword',
             order: 5,
@@ -78,21 +79,22 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
         private elementRef: ElementRef,
         private route: ActivatedRoute,
         private router: Router) {
-        //this.dateValue 
-        this.accessGroup = {};
     }
 
     ngOnInit() {
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id'];
+            if (this.id == "new") {
+                // hide password
+                this.isNew = true;
+            }
             this.backendService.getUserById(this.id).subscribe(data => {
                 if (data.status == "success") {
                     this.user = data.payload;
-
                     this.dynamicInput.setValue('id', this.user.id);
                     this.dynamicInput.setValue('userName', this.user.userName);
                     this.dynamicInput.setValue('fullName', this.user.fullName);
-
+                    this.dynamicInput.setValue("email", this.user.email);
                 }
                 else {
                     //notify user
@@ -111,22 +113,30 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
             new fabric['CommandBar'](CommandBarElements[i]);
         }
 
+        let checkBoxElements = this.elementRef.nativeElement.querySelectorAll(".ms-CheckBox");
+        for (let i = 0; i < checkBoxElements.length; i++) {
+            new fabric['CheckBox'](checkBoxElements[i]);
+        }
+
         let previousValid = this.dynamicInput.valid;
         this.dynamicInput.changes.subscribe(() => {
             if (this.dynamicInput.valid !== previousValid) {
                 previousValid = this.dynamicInput.valid;
-                //this.form.setDisabled('submit', !previousValid);
             }
         });
-        //this.form.setDisabled('submit', true);
+    }
+
+    toggleCheckBox(group: any) {
+        group.isAccessible = !group.isAccessible;
     }
 
 
     submitForm() {
         if (this.dynamicInput.valid) {
-            //console.log("Value:", this.dynamicInput.form.value);
+            let userData = { user: this.dynamicInput.value, password: "123RtYtreW43@1" };
+            userData.user.accessGroups = this.user.accessGroups;
             if (this.id === "new") {
-                this.backendService.registerUser(this.dynamicInput.form.value).subscribe(data => {
+                this.backendService.registerUser(userData).subscribe(data => {
                     if (data.status == "success") {
                         this.router.navigate(['/home/settings/users']);
                     } else {
@@ -136,7 +146,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
                     console.log("Error:", error);
                 });
             } else {
-                this.backendService.updateUser(this.dynamicInput.form.value).subscribe(data => {
+                this.backendService.updateUser(userData.user).subscribe(data => {
                     if (data.status == "success") {
                         this.router.navigate(['/home/settings/users']);
                     } else {

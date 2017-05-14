@@ -9,6 +9,7 @@ import { FormCheckBoxComponent } from './components/form-check-box.component';
 import { FormRadioButtonComponent } from './components/form-radio-button.component';
 import { FormToggleComponent } from './components/form-toggle.component';
 import { FormHiddenInputComponent } from './components/form-hidden-input.component';
+import { FormPasswordComponent } from './components/form-password.component';
 
 import { Field } from './models/field.interface';
 import { FormField } from './models/form-field';
@@ -21,7 +22,8 @@ const components: { [type: string]: Type<FormField> } = {
   checkbox: FormCheckBoxComponent,
   radiobutton: FormRadioButtonComponent,
   toggle: FormToggleComponent,
-  hiddenInput: FormHiddenInputComponent
+  hiddenInput: FormHiddenInputComponent,
+  password: FormPasswordComponent
 };
 
 @Directive({

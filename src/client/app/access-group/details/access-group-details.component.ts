@@ -20,7 +20,6 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
     private id: string;
     private sub: any;
 
-    public accessRole: any;
     fields: Field[] = [
         {
             key: 'id',

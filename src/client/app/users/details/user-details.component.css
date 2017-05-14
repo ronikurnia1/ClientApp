@@ -4,7 +4,7 @@
 
 .access-group-details {
   display: block;
-  padding: 0 20px;
+  padding: 0 20px 50px 20px;
   overflow: auto;
   overflow-x: hidden;
   height: 100%;
@@ -12,16 +12,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-ul {
-  list-style: none;
+.ms-CheckBox.ms-TextField {
+  margin-bottom: 0px;
 }
-
-li > .ms-TextField {
-  margin-bottom: 0;
-}
-
-.three-view {
-  padding-left: 1px;   
-  padding-bottom: 40px; 
-}
-

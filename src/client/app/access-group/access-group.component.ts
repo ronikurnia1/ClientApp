@@ -87,7 +87,7 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
         for (var i = 0; i < actionButtonElements.length; i++) {
             actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
                 (event: any) => {
-                    if (event.srcElement.innerText.trim() === "Save") {
+                    if (event.srcElement.innerText.trim() === "Yes") {
                         let accessGroupIds: string[] = this.accessGroups.filter(itm => itm.isSelected).map(itm => itm.id);
                         this.backendService.unregisterAccessGroup(accessGroupIds).subscribe(data => {
                             if (data.status === "success") {

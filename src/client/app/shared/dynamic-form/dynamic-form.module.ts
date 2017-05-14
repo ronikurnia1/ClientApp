@@ -12,6 +12,7 @@ import { FormCheckBoxComponent } from './components/form-check-box.component';
 import { FormRadioButtonComponent } from './components/form-radio-button.component';
 import { FormToggleComponent } from './components/form-toggle.component';
 import { FormHiddenInputComponent } from './components/form-hidden-input.component';
+import { FormPasswordComponent } from './components/form-password.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { FormHiddenInputComponent } from './components/form-hidden-input.compone
     FormCheckBoxComponent,
     FormRadioButtonComponent,
     FormToggleComponent,
-    FormHiddenInputComponent
+    FormHiddenInputComponent,
+    FormPasswordComponent
   ],
   exports: [
     DynamicFormComponent
@@ -41,7 +43,8 @@ import { FormHiddenInputComponent } from './components/form-hidden-input.compone
     FormCheckBoxComponent,
     FormRadioButtonComponent,
     FormToggleComponent,
-    FormHiddenInputComponent
+    FormHiddenInputComponent,
+    FormPasswordComponent
   ]
 })
 export class DynamicFormModule { }

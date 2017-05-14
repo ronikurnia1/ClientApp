@@ -100,15 +100,16 @@ export class BackendService {
             }).catch(this.handleError);
     }
 
-    registerUser(user: any): Observable<any> {
-        return this.http.post('api/users/', user, { headers: this.constructHeader() })
+    registerUser(userData: any): Observable<any> {
+        console.log("Request:", userData);
+        return this.http.post('api/users/', userData, { headers: this.constructHeader() })
             .map((response: Response) => {
                 return response.json();
             }).catch(this.handleError);
     }
 
-    updateUser(user: any): Observable<any> {
-        return this.http.put('api/users/', user, { headers: this.constructHeader() })
+    updateUser(userData: any): Observable<any> {
+        return this.http.put('api/users/', userData, { headers: this.constructHeader() })
             .map((response: Response) => {
                 return response.json();
             }).catch(this.handleError);
