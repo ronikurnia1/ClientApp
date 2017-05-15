@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 
 import { HeaderComponent } from './header/index';
 import { NavbarComponent } from './navbar/index';
@@ -14,10 +15,10 @@ import { AuthCheckerService } from './auth-checker/index';
  */
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ToastrModule.forRoot()],
   declarations: [HeaderComponent, NavbarComponent],
   exports: [HeaderComponent, NavbarComponent,
-    CommonModule, FormsModule, RouterModule]
+    CommonModule, FormsModule, RouterModule, ToastrModule]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

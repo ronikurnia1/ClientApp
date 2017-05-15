@@ -3127,35 +3127,35 @@
 
 @font-face {
   font-family: 'Segoe UI WestEuropean';
-  src: local('Segoe UI Light'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-light.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-light.woff') format('woff'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-light.ttf') format('truetype');
+  src: local('Segoe UI Light'), url('fonts/segoeui/segoeui-light.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Segoe UI WestEuropean';
-  src: local('Segoe UI'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-regular.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-regular.woff') format('woff'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-regular.ttf') format('truetype');
+  src: local('Segoe UI'), url('fonts/segoeui/segoeui/segoeui-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Segoe UI WestEuropean';
-  src: local('Segoe UI Semibold'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semibold.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semibold.woff') format('woff'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semibold.ttf') format('truetype');
+  src: local('Segoe UI Semibold'), url('fonts/segoeui/segoeui/segoeui-semibold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Segoe UI WestEuropean';
-  src: local('Segoe UI Semilight'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semilight.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semilight.woff') format('woff'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-westeuropean/segoeui-semilight.ttf') format('truetype');
+  src: local('Segoe UI Semilight'), url('fonts/segoeui/segoeui-semilight.woff2') format('woff2');
   font-weight: 200;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Segoe UI Arabic';
-  src: local('Segoe UI Light'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-arabic/segoeui-light.woff2') format('woff2'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-arabic/segoeui-light.woff') format('woff'), url('https://static2.sharepointonline.com/files/fabric/assets/fonts//segoeui-arabic/segoeui-light.ttf') format('truetype');
+  src: local('Segoe UI Light'), url('fonts/segoeui/segoeui-light.woff2') format('woff2');
   font-weight: 100;
   font-style: normal;
 }
@@ -9145,7 +9145,7 @@
 .ms-CheckBox {
   box-sizing: border-box;
   color: #333333;
-  font-family: 'Segoe UI WestEuropean', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Regular', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 400;
   min-height: 36px;
@@ -9731,7 +9731,7 @@
   left: 3px;
   right: 3px;
   bottom: 3px;
-  border: 1px solid #333333;
+  /*border: 1px solid #333333;*/
   position: absolute;
   z-index: 10;
   content: '';
@@ -9794,6 +9794,7 @@
 
 .ms-CommandButton-label {
   font-size: 14px;
+  font-family: 'Roboto Regular';
   font-weight: 400;
   color: #333333;
   line-height: 40px;
@@ -14483,7 +14484,7 @@
   font-family: 'Roboto Regular', BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #666666;
-  font-family: 'Segoe UI WestEuropean', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Roboto Regular', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;

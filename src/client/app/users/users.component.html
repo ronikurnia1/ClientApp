@@ -9,6 +9,14 @@
                 <span class="ms-CommandButton-label">New</span>
             </button>
         </div>
+        <div class="ms-CommandButton">
+            <button class="ms-CommandButton-button" (click)="showToast()">
+                <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
+                    <i class="ms-Icon ms-Icon--MessageFill"></i>
+                </span>
+                <span class="ms-CommandButton-label">Show Toast</span>
+            </button>
+        </div>
 
         <div class="ms-CommandButton" [class.is-hide]="isNoSelection">
             <button class="ms-CommandButton-button" (click)="openDeleteDialog()">

@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { BackendService } from '../shared/backend/index';
 
 declare const fabric: any;
@@ -17,10 +18,15 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
     private dialogComponent: any;
 
 
-    constructor(private backendService: BackendService, private elementRef: ElementRef) {
+    constructor(private backendService: BackendService,
+        private toastrService: ToastrService,
+        private elementRef: ElementRef) {
         //this.dateValue 
     }
 
+    showToast() {
+        this.toastrService.success("Hello word!", "Confirmation");
+    }
 
     toggleSelection(user: any, event: Event) {
         event.preventDefault();
@@ -86,17 +92,20 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
         for (var i = 0; i < actionButtonElements.length; i++) {
             actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
                 (event: any) => {
+                    // delete users
                     if (event.srcElement.innerText.trim() === "Yes") {
                         let userIds: string[] = this.users.filter(itm => itm.isSelected).map(itm => itm.id);
                         this.backendService.unregisterUser(userIds).subscribe(data => {
                             if (data.status === "success") {
                                 // refresh list
+                                this.toastrService.success("Selected user have been removed.", "Unregister success");
                                 this.loadData();
                             } else {
-
+                                this.toastrService.warning(data.message, "Unregister failed");
                             }
                         }, error => {
                             // nottify user
+                            this.toastrService.warning(error.message, "Unregister failed");
                         });
                     }
                 });

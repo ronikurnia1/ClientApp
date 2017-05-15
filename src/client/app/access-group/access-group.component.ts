@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { BackendService } from '../shared/backend/index';
+import { ToastrService } from 'ngx-toastr';
 
 declare const fabric: any;
 
@@ -17,7 +18,9 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
     private dialogComponent: any;
 
 
-    constructor(private backendService: BackendService, private elementRef: ElementRef) {
+    constructor(private backendService: BackendService,
+        private toastrService: ToastrService,
+        private elementRef: ElementRef) {
         //this.dateValue 
     }
 
@@ -88,16 +91,19 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
             actionButtonComponents[i] = new fabric['Button'](actionButtonElements[i],
                 (event: any) => {
                     if (event.srcElement.innerText.trim() === "Yes") {
+                        // Delete Access Group
                         let accessGroupIds: string[] = this.accessGroups.filter(itm => itm.isSelected).map(itm => itm.id);
                         this.backendService.unregisterAccessGroup(accessGroupIds).subscribe(data => {
                             if (data.status === "success") {
                                 // refresh list
+                                this.toastrService.success("Selected Access Group have been removed.", "Unregister success");
                                 this.loadData();
                             } else {
-
+                                this.toastrService.warning(data.message, "Unregister failed");
                             }
                         }, error => {
                             // nottify user
+                            this.toastrService.error(error.message, "Unregister failed");
                         });
                     }
                 });

@@ -4,6 +4,8 @@ import { BackendService } from '../../shared/backend/index';
 import { ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
 import { Field } from '../../shared/dynamic-form/models/field.interface'; import { DynamicFormComponent } from '../../shared/dynamic-form/dynamic-form.component';
+import { ToastrService } from 'ngx-toastr';
+
 declare const fabric: any;
 
 @Component({
@@ -51,6 +53,7 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
     constructor(
         private backendService: BackendService,
         private elementRef: ElementRef,
+        private toastrService: ToastrService,
         private route: ActivatedRoute,
         private router: Router) {
         //this.dateValue 
@@ -104,21 +107,27 @@ export class AccessGroupDetailsComponent implements OnInit, AfterViewInit, OnDes
             if (this.id === "new") {
                 this.backendService.registerAccessGroup(this.dynamicInput.form.value).subscribe(data => {
                     if (data.status == "success") {
+                        this.toastrService.success("Access Group has been registered.", "Register success");
                         this.router.navigate(['/home/settings/access-groups']);
                     } else {
+                        this.toastrService.warning(data.message, "Register failed");
                         console.log("Error:", data);
                     }
                 }, error => {
+                    this.toastrService.warning(error.message, "Register failed");
                     console.log("Error:", error);
                 });
             } else {
                 this.backendService.updateAccessGroup(this.dynamicInput.form.value).subscribe(data => {
                     if (data.status == "success") {
+                        this.toastrService.success("Access Group has been updated.", "Update success");
                         this.router.navigate(['/home/settings/access-groups']);
                     } else {
+                        this.toastrService.warning(data.message, "Update failed");
                         console.log("Error:", data);
                     }
                 }, error => {
+                    this.toastrService.warning(error.message, "Update failed");
                     console.log("Error:", error);
                 });
             }

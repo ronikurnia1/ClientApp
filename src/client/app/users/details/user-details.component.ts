@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { BackendService } from '../../shared/backend/index';
 import { ActivatedRoute } from '@angular/router';
 import { Validators } from '@angular/forms';
-import { Field } from '../../shared/dynamic-form/models/field.interface'; import { DynamicFormComponent } from '../../shared/dynamic-form/dynamic-form.component';
+import { Field } from '../../shared/dynamic-form/models/field.interface';
+import { DynamicFormComponent } from '../../shared/dynamic-form/dynamic-form.component';
+import { ToastrService } from 'ngx-toastr';
 
 declare const fabric: any;
 
@@ -78,6 +80,7 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
         private backendService: BackendService,
         private elementRef: ElementRef,
         private route: ActivatedRoute,
+        private toasterService: ToastrService,
         private router: Router) {
     }
 
@@ -138,21 +141,27 @@ export class UserDetailsComponent implements OnInit, AfterViewInit, OnDestroy {
             if (this.id === "new") {
                 this.backendService.registerUser(userData).subscribe(data => {
                     if (data.status == "success") {
+                        this.toasterService.success("New user has been created.", "Registration success");
                         this.router.navigate(['/home/settings/users']);
                     } else {
+                        this.toasterService.warning(data.message, "Registration failed");
                         console.log("Error:", data);
                     }
                 }, error => {
+                    this.toasterService.error(error.message, "Registration failed");
                     console.log("Error:", error);
                 });
             } else {
                 this.backendService.updateUser(userData.user).subscribe(data => {
                     if (data.status == "success") {
+                        this.toasterService.success("User has been updated.", "Update success");
                         this.router.navigate(['/home/settings/users']);
                     } else {
+                        this.toasterService.warning(data.message, "Update failed");
                         console.log("Error:", data);
                     }
                 }, error => {
+                    this.toasterService.error(error.message, "Update failed");
                     console.log("Error:", error);
                 });
             }
