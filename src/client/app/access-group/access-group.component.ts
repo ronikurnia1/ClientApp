@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { BackendService } from '../shared/backend/index';
 import { ToastrService } from 'ngx-toastr';
 
@@ -14,14 +14,27 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     public accessGroups: any[];
+    public isAllSelected: boolean;
+
     private searchBox: any[] = [];
     private dialogComponent: any;
 
+    @ViewChild("ListHeader") listHeader: ElementRef;
 
     constructor(private backendService: BackendService,
         private toastrService: ToastrService,
         private elementRef: ElementRef) {
         //this.dateValue 
+        this.isAllSelected = false;
+    }
+
+
+    toggleAllSelection() {
+        // select all
+        this.isAllSelected = !this.isAllSelected;
+        this.accessGroups.forEach(itm => {
+            itm.isSelected = this.isAllSelected;
+        });
     }
 
 
@@ -29,6 +42,8 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
         event.preventDefault();
         event.stopPropagation();
         accessGroup.isSelected = !accessGroup.isSelected;
+        // update all selection
+        this.isAllSelected = this.accessGroups.every(itm => itm.isSelected);
     }
 
     get isNoSelection(): boolean {
@@ -51,7 +66,6 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
                 }
                 else {
                     // display message
-
                 }
             },
             error => {
@@ -73,12 +87,13 @@ export class AccessGroupComponent implements OnInit, AfterViewInit, OnDestroy {
         for (let i = 0; i < ListItemElements.length; i++) {
             new fabric['ListItem'](ListItemElements[i]);
         }
+        new fabric['ListItem'](this.listHeader.nativeElement);
+
 
         let CommandBarElements = this.elementRef.nativeElement.querySelectorAll(".ms-CommandBar");
         for (let i = 0; i < CommandBarElements.length; i++) {
             new fabric['CommandBar'](CommandBarElements[i]);
         }
-
 
         // dialog
         let dialog = this.elementRef.nativeElement.querySelector(".ms-Dialog");

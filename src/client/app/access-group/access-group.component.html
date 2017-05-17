@@ -21,9 +21,12 @@
 
     </div>
 </div>
-<div class="access-group-list">
-    <h2>Access Groups</h2>
+<div class="listItem">
     <ul class="ms-List">
+        <li #ListHeader [class.is-selected]="isAllSelected" class="ms-ListItem header-listItem is-selectable" >
+            <span class="ms-fontSize-xl">Access Groups</span>
+            <div (click)="toggleAllSelection()" class="ms-ListItem-selectionTarget"></div>
+        </li>
         <li *ngFor="let accessGroup of accessGroups" [class.is-selected]="accessGroup.isSelected" class="ms-ListItem is-selectable">
             <a [routerLink]="[accessGroup.id]">
                 <span class="ms-ListItem-primaryText">{{accessGroup.name}}</span>
@@ -39,7 +42,7 @@
     <button class="ms-Dialog-button ms-Dialog-buttonClose">
       <i class="ms-Icon ms-Icon--Cancel"></i>
     </button>
-    <div class="ms-Dialog-title">User Confirmation</div>
+    <div class="ms-Dialog-title">Delete Confirmation</div>
     <div class="ms-Dialog-content">
         <div class="ms-TextField">
             <label class="ms-Label">Are you sure want to delete selected Access Groups?</label>

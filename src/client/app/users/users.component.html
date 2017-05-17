@@ -9,15 +9,6 @@
                 <span class="ms-CommandButton-label">New</span>
             </button>
         </div>
-        <div class="ms-CommandButton">
-            <button class="ms-CommandButton-button" (click)="showToast()">
-                <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
-                    <i class="ms-Icon ms-Icon--MessageFill"></i>
-                </span>
-                <span class="ms-CommandButton-label">Show Toast</span>
-            </button>
-        </div>
-
         <div class="ms-CommandButton" [class.is-hide]="isNoSelection">
             <button class="ms-CommandButton-button" (click)="openDeleteDialog()">
                 <span class="ms-CommandButton-icon ms-fontColor-themePrimary">
@@ -29,9 +20,12 @@
 
     </div>
 </div>
-<div class="access-group-list">
-    <h2>Users</h2>
+<div class="listItem">
     <ul class="ms-List">
+        <li #ListHeader [class.is-selected]="isAllSelected" class="ms-ListItem header-listItem is-selectable" >
+            <span class="ms-fontSize-xl">Users</span>
+            <div (click)="toggleAllSelection()" class="ms-ListItem-selectionTarget"></div>
+        </li>
         <li *ngFor="let user of users" [class.is-selected]="user.isSelected" class="ms-ListItem is-selectable">
             <a [routerLink]="[user.id]">
                 <span class="ms-ListItem-primaryText">{{user.userName}}</span>
@@ -46,7 +40,7 @@
     <button class="ms-Dialog-button ms-Dialog-buttonClose">
       <i class="ms-Icon ms-Icon--Cancel"></i>
     </button>
-    <div class="ms-Dialog-title">User Confirmation</div>
+    <div class="ms-Dialog-title">Delete Confirmation</div>
     <div class="ms-Dialog-content">
         <div class="ms-TextField">
             <label class="ms-Label">Are you sure want to delete selected users?</label>

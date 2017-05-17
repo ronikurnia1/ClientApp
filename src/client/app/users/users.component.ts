@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BackendService } from '../shared/backend/index';
 
@@ -14,24 +14,34 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
 
 
     public users: any[];
+    public isAllSelected: boolean;
+
     private searchBox: any[] = [];
     private dialogComponent: any;
 
+    @ViewChild("ListHeader") listHeader: ElementRef;
 
     constructor(private backendService: BackendService,
         private toastrService: ToastrService,
         private elementRef: ElementRef) {
         //this.dateValue 
+        this.isAllSelected = false;
     }
 
-    showToast() {
-        this.toastrService.success("Hello word!", "Confirmation");
+
+    toggleAllSelection() {
+        this.isAllSelected = !this.isAllSelected;
+        this.users.forEach(itm => {
+            itm.isSelected = this.isAllSelected;
+        });
     }
 
     toggleSelection(user: any, event: Event) {
         event.preventDefault();
         event.stopPropagation();
         user.isSelected = !user.isSelected;
+        // update all selection
+        this.isAllSelected = this.users.every(itm => itm.isSelected);
     }
 
     get isNoSelection(): boolean {
@@ -71,16 +81,16 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy {
             this.searchBox.push(new fabric['SearchBox'](SearchBoxElements[i]));
         }
 
-        let ListItemElements = this.elementRef.nativeElement.querySelectorAll(".ms-ListItem");
-        for (let i = 0; i < ListItemElements.length; i++) {
-            new fabric['ListItem'](ListItemElements[i]);
-        }
-
         let CommandBarElements = this.elementRef.nativeElement.querySelectorAll(".ms-CommandBar");
         for (let i = 0; i < CommandBarElements.length; i++) {
             new fabric['CommandBar'](CommandBarElements[i]);
         }
 
+        let ListItemElements = this.elementRef.nativeElement.querySelectorAll(".ms-ListItem");
+        for (let i = 0; i < ListItemElements.length; i++) {
+            new fabric['ListItem'](ListItemElements[i]);
+        }
+        new fabric['ListItem'](this.listHeader.nativeElement);
 
         // dialog
         let dialog = this.elementRef.nativeElement.querySelector(".ms-Dialog");

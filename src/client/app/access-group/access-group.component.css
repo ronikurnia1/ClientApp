@@ -6,7 +6,7 @@ a:link{
   text-decoration: none;
 }
 
-.access-group-list {
+.listItem {
   display: block;
   padding: 0 20px;
   overflow: auto;
@@ -22,4 +22,25 @@ a:link{
 
 .is-hide {
   display: none;
+}
+
+.header-listItem {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+.header-listItem.is-selected {
+  background-color: transparent;
+}
+
+.header-listItem:hover {
+  background-color: transparent;
+}
+
+.ms-ListItem.is-selected::before, .ms-ListItem.is-selected:hover::before {
+  top: 23px;
+}
+
+.ms-ListItem::before, .ms-ListItem:hover::before {
+  top: 14px;
 }
